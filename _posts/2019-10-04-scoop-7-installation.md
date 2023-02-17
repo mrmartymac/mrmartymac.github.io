@@ -22,7 +22,7 @@ We assume VirtualBox is installed, but in case you need it still here is the [li
 
 1. Open the VirtualBox Manager and click New
 
-![Screenshot](/images/scoop-7-installation/create-new-centos-7-vm.png){: .right }
+![Screenshot](/images/scoop-7-installation/create-new-centos-7-vm.png){: w="400" }{: .right }
 
 
 ### Create Virtual Machine
