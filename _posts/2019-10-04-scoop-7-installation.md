@@ -22,7 +22,7 @@ We assume VirtualBox is installed, but in case you need it still here is the [li
 
 1. Open the VirtualBox Manager and click New
 
-![Screenshot](/images/scoop-7-installation/create-new-centos-7-vm.png)  
+![Screenshot](/images/scoop-7-installation/create-new-centos-7-vm.png))  
 _Create new CENTOS7 VM_
 
 
@@ -30,7 +30,7 @@ _Create new CENTOS7 VM_
 
 Click Expert Mode.  This simplifies the creation into fewer wizard pages.
 
-![](/images/scoop-7-installation/create-virtual-machine.png)
+![](/images/scoop-7-installation/create-virtual-machine.png))
 
 ### Create Virtual Machine
 
@@ -41,17 +41,17 @@ Click Expert Mode.  This simplifies the creation into fewer wizard pages.
 1. Choose **Create a virtual hard disk now.**
 1. Click **Create**.
 
-![][3]
 
-[3]: images/scoop-7-installation/create-virtual-machine-1.png
+
+![](/images/scoop-7-installation/create-virtual-machine-1.png)
 
 ### Create Virtual Hard Disk
 
 Unless you anticipate importing a large amount of data for this test machine, no changes should be needed on this dialog.  Simply click **Create**.  If you would like to make the virtual hard disk larger, simply increase the **File size**.
 
-![][4]
 
-[4]: images/scoop-7-installation/create-virtual-hard-disk.png
+
+![](/images/scoop-7-installation/create-virtual-hard-disk.png)
 
 ### VERY IMPORTANT!!!
 
@@ -60,9 +60,9 @@ Before going any further you must open **Settings** and configure the Network ad
 1. Select the VM you just created.
 1. Click Settings.
 
-![][5]
 
-[5]: images/scoop-7-installation/very-important---.png
+
+![](/images/scoop-7-installation/very-important---.png)
 
 ### Configuring the Network adapter
 
@@ -70,9 +70,9 @@ Before going any further you must open **Settings** and configure the Network ad
 1. Set **Attached to** to the **Bridged Adapter**.
 1. Click **OK**.
 
-![][6]
 
-[6]: images/scoop-7-installation/configuring-the-network-adapter.png
+
+![](/images/scoop-7-installation/configuring-the-network-adapter.png)
 
 ## First Startup & OS installation
 
@@ -82,26 +82,26 @@ You will need to download the CentOS 7 ISO to use during the next steps.  Here i
 
 1. Please click the DVD ISO option to choose a mirror site.
 
-![][7]
 
-[7]: images/scoop-7-installation/first-startup--amp--os-installation.png
+
+![](/images/scoop-7-installation/first-startup--amp--os-installation.png)
 
 ### CentOS Mirror
 
 Any mirror is fine, just choose one.  Save the file in a location you will remember.  Once the download is complete, move on to the next step.
 
-![][8]
 
-[8]: images/scoop-7-installation/centos-mirror.png
+
+![](/images/scoop-7-installation/centos-mirror.png)
 
 ### Start the VM
 
 1. Click on the VM.
 1. Click **Start.**
 
-![][9]
 
-[9]: images/scoop-7-installation/start-the-vm.png
+
+![](/images/scoop-7-installation/start-the-vm.png)
 
 ### OS Installation
 
@@ -110,25 +110,25 @@ After clicking Start a terminal window will popup along with a dialog to aid you
 1. Click the browse icon on the right side (1) and browse to the CentOS ISO you downloaded earlier.
 1. Click Start.
 
-![][10]
 
-[10]: images/scoop-7-installation/os-installation.png
+
+![](/images/scoop-7-installation/os-installation.png)
 
 ### Install CentOS 7
 
 The installation has begun.  There is an autotimer that will automatically continue the installation or you may choose **Install CentOS 7 **and press enter to continue immediately.
 
-![][11]
 
-[11]: images/scoop-7-installation/install-centos-7.png
+
+![](/images/scoop-7-installation/install-centos-7.png)
 
 ### Installer running
 
 As the installation proceeds, you will see a variety of messages.
 
-![][12]
 
-[12]: images/scoop-7-installation/installer-running.png
+
+![](/images/scoop-7-installation/installer-running.png)
 
 ### Setup wizard
 
@@ -137,9 +137,9 @@ Eventually a wizard will appear.
 1. Choose your preferred language
 1. Click Continue
 
-![][13]
 
-[13]: images/scoop-7-installation/setup-wizard.png
+
+![](/images/scoop-7-installation/setup-wizard.png)
 
 ### Configure Network
 
@@ -147,9 +147,9 @@ Eventually a wizard will appear.
 
 
 
-![][14]
 
-[14]: images/scoop-7-installation/configure-network.png
+
+![](/images/scoop-7-installation/configure-network.png)
 
 ### Turn Ethernet ON
 
@@ -158,9 +158,9 @@ Eventually a wizard will appear.
 1. Did you write down the IP address?
 1. Click **Done**.
 
-![][15]
 
-[15]: images/scoop-7-installation/turn-ethernet-on.png
+
+![](/images/scoop-7-installation/turn-ethernet-on.png)
 
 ### Installation Destination
 
@@ -168,34 +168,34 @@ You may need to set the Installation Destination.  If you see the red message sh
 
 1. Click on Installation Destination button.
 
-![][16]
 
-[16]: images/scoop-7-installation/installation-destination.png
+
+![](/images/scoop-7-installation/installation-destination.png)
 
 ### Installation Destination
 
 1. Click on the **ATA VBOX HARDDISK.**
 1. Click **Done**.
 
-![][17]
 
-[17]: images/scoop-7-installation/installation-destination-1.png
+
+![](/images/scoop-7-installation/installation-destination-1.png)
 
 ### Ready to install
 
 1. Click **Begin Installation**.
 
-![][18]
 
-[18]: images/scoop-7-installation/ready-to-install.png
+
+![](/images/scoop-7-installation/ready-to-install.png)
 
 ### Setting passwords
 
 1. Click on **Root Password.**
 
-![][19]
 
-[19]: images/scoop-7-installation/setting-passwords.png
+
+![](/images/scoop-7-installation/setting-passwords.png)
 
 ### Setting root password
 
@@ -203,9 +203,9 @@ You may need to set the Installation Destination.  If you see the red message sh
 1. Confirm your password.
 1. Click **Done**.
 
-![][20]
 
-[20]: images/scoop-7-installation/setting-root-password.png
+
+![](/images/scoop-7-installation/setting-root-password.png)
 
 ### User Creation
 
@@ -215,25 +215,25 @@ It is up to you if you would like to create another account at this time, if so,
 
 1. Click **Finish configuration**. (This may differ on some platforms)
 
-![][21]
 
-[21]: images/scoop-7-installation/finish-configuration.png
+
+![](/images/scoop-7-installation/finish-configuration.png)
 
 ### Installation complete
 
 At this point, CentOS is installed.  Please complete the process by clicking **Reboot**.
 
-![][22]
 
-[22]: images/scoop-7-installation/installation-complete.png
+
+![](/images/scoop-7-installation/installation-complete.png)
 
 ### Time to login
 
 When the server is started a console window similar to the one below will open by default.  This login screen is not of much use, but you will have to leave it open for now.
 
-![][23]
 
-[23]: images/scoop-7-installation/time-to-login.png
+
+![](/images/scoop-7-installation/time-to-login.png)
 
 ### How to open an SSH session to the server
 
@@ -251,9 +251,9 @@ You can use PowerShell to SSH to the VM.
 
 
 
-![][24]
 
-[24]: images/scoop-7-installation/windows---open-powershell.png
+
+![](/images/scoop-7-installation/windows---open-powershell.png)
 
 ### Mac - Open Terminal
 
@@ -263,25 +263,25 @@ On the Mac you can use Terminal to ssh to the VM.
 1. Choose **Applications - Utilities**.
 1. Locate **Terminal **and open it by double clicking on Terminal.
 
-![][25]
 
-[25]: images/scoop-7-installation/mac---open-terminal.png
+
+![](/images/scoop-7-installation/mac---open-terminal.png)
 
 ### Windows PowerShell
 
 The result of running the **powershell** command will be a window similar to the one below.
 
-![][26]
 
-[26]: images/scoop-7-installation/windows-powershell.png
+
+![](/images/scoop-7-installation/windows-powershell.png)
 
 ### Mac Terminal
 
 The result of running the **Terminal** application will be a window similar to the one below.
 
-![][27]
 
-[27]: images/scoop-7-installation/mac-terminal.png
+
+![](/images/scoop-7-installation/mac-terminal.png)
 
 ### Your first ssh connection
 
@@ -293,9 +293,9 @@ Enter the command below and press enter
 
 In place of <TheIPAddressOfYourVM> insert the IP address you noted earlier.  See the examples below
 
-![][28]
 
-[28]: images/scoop-7-installation/your-first-ssh-connection.png
+
+![](/images/scoop-7-installation/your-first-ssh-connection.png)
 
 ### Your first ssh connection
 
@@ -303,25 +303,25 @@ The very first time you connect you will be asked to confirm that you want to ac
 
 You must type **yes **and press enter.
 
-![][29]
 
-[29]: images/scoop-7-installation/your-first-ssh-connection-1.png
+
+![](/images/scoop-7-installation/your-first-ssh-connection-1.png)
 
 ### Your first ssh connection
 
 Enter the password you configured for the root user earlier.
 
-![][30]
 
-[30]: images/scoop-7-installation/your-first-ssh-connection-2.png
+
+![](/images/scoop-7-installation/your-first-ssh-connection-2.png)
 
 ### Your first ssh connection
 
 This is the screen that will result.  From this point on you can continue with the commands and instructions below.
 
-![][31]
 
-[31]: images/scoop-7-installation/your-first-ssh-connection-3.png
+
+![](/images/scoop-7-installation/your-first-ssh-connection-3.png)
 
 ## OS Configuration Changes
 
@@ -373,17 +373,17 @@ You will see something like the image below.
 
 
 
-![][32]
 
-[32]: images/scoop-7-installation/disable-selinux.png
+
+![](/images/scoop-7-installation/disable-selinux.png)
 
 ## After editing
 
 This is what the edit should look like after you finish
 
-![][33]
 
-[33]: images/scoop-7-installation/after-editing.png
+
+![](/images/scoop-7-installation/after-editing.png)
 
 ## Reboot the server
 
@@ -448,9 +448,9 @@ Then restart smb
 
      systemctl restart smb
 
-![][34]
 
-[34]: images/scoop-7-installation/file-shares---mac.png
+
+![](/images/scoop-7-installation/file-shares---mac.png)
 
 ### First run of Scoop Client
 
