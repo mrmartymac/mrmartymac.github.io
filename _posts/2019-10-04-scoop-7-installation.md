@@ -28,6 +28,8 @@ We assume VirtualBox is installed, but in case you need it still here is the [li
 
 Click Expert Mode.  This simplifies the creation into fewer wizard pages. ![](/images/scoop-7-installation/create-virtual-machine.png){: w="400" }{: .left }
 
+---
+
 ### Create Virtual Machine
 
 1. Enter a **Name** for the VM.
