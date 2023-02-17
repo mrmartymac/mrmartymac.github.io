@@ -1,6 +1,6 @@
 ---
 title: Hi Mike
-date: 2023-49-17 09:49:07 -500
+date: 2023-02-17 09:49:07 -500
 categories: [cat1, cat2]
 tags: [tag1, tag2] # TAG names should always be lowercase
 ---
