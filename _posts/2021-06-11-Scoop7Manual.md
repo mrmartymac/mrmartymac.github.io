@@ -1,7 +1,7 @@
 ---
 title: Scoop7 Manual
 date: 2021-06-11 09:40:14 -500
-categories: [Documentation]
+categories: [Documentation, Manuals]
 tags: [manual] # TAG names should always be lowercase
 ---
 
