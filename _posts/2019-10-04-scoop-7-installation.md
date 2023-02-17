@@ -20,10 +20,7 @@ We assume VirtualBox is installed, but in case you need it still here is the [li
 
 ### Create new CentOS 7 VM
 
-1. Open the VirtualBox Manager and click New
-
-![Screenshot](/images/scoop-7-installation/create-new-centos-7-vm.png){: w="400" }{: .right }
-
+1. Open the VirtualBox Manager and click New ![Screenshot](/images/scoop-7-installation/create-new-centos-7-vm.png){: w="400" }{: .right }
 
 ### Create Virtual Machine
 
