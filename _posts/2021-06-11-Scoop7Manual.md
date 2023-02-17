@@ -559,7 +559,7 @@ opens a window to preview it.
 If the selected attachment is an image in a format that supports XMP
 metadata, this opens a window to edit the image's caption.
 
-![](vertopal_cf7b74770cef42b5bb91865c8e8ff697/media/image1.png){width="7.3in"
+![](/images/scoop-manual/image1.png){width="7.3in"
 height="4.0159722222222225in"}
 
 The caption editor functions much like the full Scoop editor (which is
