@@ -1,3 +1,9 @@
+---
+title: Creating Scoop7 VM in Virtual Box 
+date: 2019-10-04 09:40:14 -500
+categories: [Documentation]
+tags: [virtual box, vm, outdated] # TAG names should always be lowercase
+---
 # Installing Scoop 7
 
 The following is an installation guide for Scoop 7 on a new CentOS 7 Linux server.
