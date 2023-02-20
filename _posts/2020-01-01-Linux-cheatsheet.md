@@ -17,7 +17,7 @@ tar -xvzf my-data.tar.gz
 ## List contents of tar file
 
 ```bash
-tar -tvf file.tar
+tar -tvf my-data.tar
 tar -ztvf my-data.tar.gz
 tar -tvf my-data.tar.gz
 tar -tvf my-data.tar.gz 'search-pattern'
