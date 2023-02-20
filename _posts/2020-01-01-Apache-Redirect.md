@@ -7,9 +7,9 @@ tags: [apache, web] # TAG names should always be lowercase
 
 The only line that is important is the RedirectMatch ... line, however, it's location may be important so I included surrounding code...
 
-Edit /etc/httpd/conf/httpd.conf
+Edit `/etc/httpd/conf/httpd.conf`
 
-```xml
+```
 <IfModule alias_module>
     #
     # Redirect: Allows you to tell clients about documents that used to
