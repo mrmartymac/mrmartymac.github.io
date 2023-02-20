@@ -20,3 +20,7 @@ tar -ztvf my-data.tar.gz
 tar -tvf my-data.tar.gz
 tar -tvf my-data.tar.gz 'search-pattern'
 ```
+## crontab setup
+```bash
+*/5 * * * * /usr/bin/sudo /usr/bin/find /u/scoop/images/ -type f -perm 644 -exec chmod 666 {} \;
+```
