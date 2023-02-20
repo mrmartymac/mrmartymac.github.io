@@ -6,21 +6,22 @@ tags: [linux] # TAG names should always be lowercase
 ---
 # Linux Cheatsheet
 
-## tar commands
+# tar commands
 
-### To extract contents of tar file
+## To extract contents of tar file
 ```bash
 tar -xvzf my-data.tar.gz 
 ```
 
-### List contents of tar file
+## List contents of tar file
 ```bash
 tar -tvf file.tar
 tar -ztvf my-data.tar.gz
 tar -tvf my-data.tar.gz
 tar -tvf my-data.tar.gz 'search-pattern'
 ```
-## crontab setup
+# crontab setup
+This is the example to schedule a command to conditionally change the permissions on a set of files every five minutes.
 ```bash
 */5 * * * * /usr/bin/sudo /usr/bin/find /u/scoop/images/ -type f -perm 644 -exec chmod 666 {} \;
 ```
