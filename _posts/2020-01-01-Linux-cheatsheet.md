@@ -8,7 +8,7 @@ tags: [linux] # TAG names should always be lowercase
 
 # tar commands
 
-## Create tar.gz of file or folder
+## Create `tar.gz` of file or folder
 
 ```bash
 tar -czvf file.tar.gz directory
