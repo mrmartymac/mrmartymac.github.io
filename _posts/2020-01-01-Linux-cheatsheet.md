@@ -83,7 +83,7 @@ Done.
 
 Checking the current umask
 
-```smb
+```bash
 umask -S
 ```
 
@@ -91,29 +91,32 @@ Adding permissions
 
 Set a new umask value by using symbolic values with the following syntax:
 
+```bash
 umask u=#,g=#,o=#
+```
 
 Where:
 
-    u: Indicates user permissions.
-    g: Indicates group permissions.
-    o: Indicates other permissions.
-    #: The symbolic permission value you want to apply, as detailed in the table above.
+u: Indicates user permissions.
+g: Indicates group permissions.
+o: Indicates other permissions.
+#: The symbolic permission value you want to apply, as detailed in the table above.
 
 Note: Never use space after comas when setting up a symbolic mask value.
 
 There are also other operators you can use:
-
-    =: Creates specified file permissions and prohibits unspecified permissions.
-    +: Creates specified permissions, but does not change unspecified permissions.
-    -:Prohibits specified permissions, but does not change unspecified permissions.
+=: Creates specified file permissions and prohibits unspecified permissions.
++: Creates specified permissions, but does not change unspecified permissions.
+-:Prohibits specified permissions, but does not change unspecified permissions.
 
 Setting Up a Numeric Umask Value
 
 Once you calculate the required umask numeric value, set it up by using:
 
+```bash
 umask [mask]
+```
 
 Where:
 
-    [mask]: The numeric value of the mask you want to apply.
+[mask]: The numeric value of the mask you want to apply.
