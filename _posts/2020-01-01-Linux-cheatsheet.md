@@ -1,7 +1,7 @@
 ---
 title: Linux Cheatsheet 
 date: 2023-02-20 10:39:07 -500
-categories: [Cheatsheets, Linux]
+categories: [Cheatsheet, Linux]
 tags: [linux] # TAG names should always be lowercase
 ---
 # Linux Cheatsheet
@@ -120,3 +120,11 @@ umask [mask]
 Where:
 
 [mask]: The numeric value of the mask you want to apply.
+
+# Google Drive
+
+Copy a file from a public share URL 
+
+```bash
+wget --no-check-certificate 'https://thePublicShareFromGoogleDrive' -O DestinationFileName
+```
