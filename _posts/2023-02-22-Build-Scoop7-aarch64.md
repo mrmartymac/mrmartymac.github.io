@@ -3,6 +3,7 @@ title: How to build Scoop for aarch64 on Alma9
 date: 2023-02-22 15:40:23 -500
 categories: [Documentation, Builds]
 tags: [server, build, daemon] # TAG names should always be lowercase
+author: mm
 ---
 Instructions on building Scoop on the Parallels hosted AlmaLinux server which is an AlmaLinux 9 aarch64 version to support my M1 processor.
 

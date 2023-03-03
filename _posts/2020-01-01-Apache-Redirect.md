@@ -3,6 +3,7 @@ title: Configure Apache Redirect
 date: 2023-02-20 15:32:13 -500
 categories: [Cheatsheet, Apache]
 tags: [apache, web] # TAG names should always be lowercase
+author: mm
 ---
 
 The only line that is important is the RedirectMatch ... line, however, it's location may be important so I included surrounding code...

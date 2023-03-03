@@ -3,6 +3,7 @@ title: Creating Scoop7 VM in Virtual Box
 date: 2019-10-04 09:40:14 -500
 categories: [Documentation, Scoop7]
 tags: [virtual box, vm, outdated] # TAG names should always be lowercase
+author: mm
 ---
 # Installing Scoop 7
 

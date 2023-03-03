@@ -3,6 +3,7 @@ title: Postgres Commands
 date: 2023-03-01 13:47:01 -500
 categories: [Cheatsheet, PosgreSQL]
 tags: [postgres, psql] # TAG names should always be lowercase
+author: mm
 ---
 # Using Postgres from the CLI
 
