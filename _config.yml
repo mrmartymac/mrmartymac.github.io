@@ -19,12 +19,12 @@ timezone: America/New_York
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Scoop7 Documentaion                          # the main title
+title: Lifesavers                          # the main title
 
-tagline: Publishing made easy   # it will display as the sub-title
+tagline: Cheatsheets, tips, and tricks.   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  Documenting the Scoop7 Editorial System
+  
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://mrmartymac.github.io'
@@ -71,7 +71,7 @@ google_analytics:
 #     light  - Use the light color scheme
 #     dark   - Use the dark color scheme
 #
-theme_mode:   # [light|dark]
+theme_mode:   # [dark]
 
 # The CDN endpoint for images.
 # Notice that once it is assigned, the CDN url
@@ -81,7 +81,7 @@ theme_mode:   # [light|dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://scs.fotoware.cloud/fotoweb/embed/2023/02/161ffc3ef5e1434d884c7052f06d7e42.jpg
+avatar: https://scs.fotoware.cloud/fotoweb/embed/2023/02/5c46449c4acc45f5b5821ca1d7158f7b.jpg
 
 # boolean type, the global switch for ToC in posts.
 toc: true
