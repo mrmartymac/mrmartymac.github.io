@@ -80,7 +80,7 @@ systemctl enable autofs
 This will ensure that autofs starts on server start
 Done.
 
-## Configure inherited permissions with umask
+# Configure inherited permissions with umask
 
 Checking the current umask
 
