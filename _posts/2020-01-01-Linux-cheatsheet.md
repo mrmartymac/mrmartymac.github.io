@@ -82,45 +82,38 @@ Done.
 
 # Configure inherited permissions with umask
 
+
+
 Checking the current umask
 
 ```bash
 umask -S
 ```
 
-Adding permissions
+Changing umask permanently requires changes to be made the the user's /home/\<username>/.bash_profile
 
-Set a new umask value by using symbolic values with the following syntax:
+How to Calculate Files and Directories Permissions Based on UMASK Value
 
+As you might be aware, base permission of a file is 0666 and base permission of a directory is 0777. Hence final permission of files and directories will get calculated from this base permission values. If umask is set to 0022 in the system, then creating a file and directories will have below permission.
+
+{: .prompt-info }
+For Files : 0666 - 0022 = 0644
+For Directories: 0777 - 0022 = 0755
+
+If umask is set 0032, then creating file and directories will have below permission.
+
+For Files: 0666 - 0032 = 0634
+For Directories: 0777 - 0032 = 0745
+
+### For `rw-rw-rw-` on **files** and `rwxrwxrwx` on **directories**
 ```bash
-umask u=#,g=#,o=#
+umask 0000
 ```
 
-Where:
-
-u: Indicates user permissions.
-g: Indicates group permissions.
-o: Indicates other permissions.
-#: The symbolic permission value you want to apply, as detailed in the table above.
-
-Note: Never use space after comas when setting up a symbolic mask value.
-
-There are also other operators you can use:
-=: Creates specified file permissions and prohibits unspecified permissions.
-+: Creates specified permissions, but does not change unspecified permissions.
--:Prohibits specified permissions, but does not change unspecified permissions.
-
-Setting Up a Numeric Umask Value
-
-Once you calculate the required umask numeric value, set it up by using:
-
+### For `rw-rw-r--` on **files** and `rwxrwxr--` on **directories**
 ```bash
-umask [mask]
+umask 0002
 ```
-
-Where:
-
-[mask]: The numeric value of the mask you want to apply.
 
 # Google Drive
 
@@ -129,3 +122,17 @@ Copy a file from a public share URL
 ```bash
 wget --no-check-certificate 'https://thePublicShareFromGoogleDrive' -O DestinationFileName
 ```
+
+
+
+How to Calculate Files and Directories Permissions Based on UMASK Value
+
+As you might be aware, base permission of a file is 0666 and base permission of a directory is 0777. Hence final permission of files and directories will get calculated from this base permission values. If umask is set to 0022 in the system, then creating a file and directories will have below permission.
+
+For Files : 0666 - 0022 = 0644
+For Directories: 0777 - 0022 = 0755
+
+If umask is set 0032, then creating file and directories will have below permission.
+
+For Files: 0666 - 0032 = 0634
+For Directories: 0777 - 0032 = 0745
