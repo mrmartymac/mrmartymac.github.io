@@ -7,6 +7,19 @@ author: mm
 ---
 # Linux Cheatsheet
 
+# Configure your profile to use Nano as the default editor
+
+First, insatall Nano
+
+`yum install nano`
+
+Edit your .bash_profile
+
+`nano ~/.bash_profile`
+
+Add the user preference
+
+`export VISUAL="nano"`
 # tar commands
 
 ## Create **tar.gz** of file or folder
@@ -33,6 +46,13 @@ tar -tvf my-data.tar.gz 'search-pattern'
 # crontab setup
 
 This is the example to schedule a command to conditionally change the permissions on a set of files every five minutes.
+
+To edit crontab 
+`crontab -e`
+
+> Runtime parameters. `minute hour day_of_month month day_of_week command_to_run`
+{: .prompt-info }
+
 
 ```bash
 */5 * * * * /usr/bin/sudo /usr/bin/find /u/scoop/images/ -type f -perm 644 -exec chmod 666 {} \;
@@ -82,8 +102,6 @@ Done.
 
 # Configure inherited permissions with umask
 
-
-
 Checking the current umask
 
 ```bash
@@ -125,7 +143,9 @@ umask 0002
 > Be certain to log off nad back in before testing the changes to your .bash_profile.  The change to your umask will not take effect until the user logs out and back in.
 {: .prompt-warning }
 
+# Congifure inherited permisions with setfacl
 
+`sudo setfacl -dm u::rwx,g::rwx,o::rwx <path>`
 # Google Drive
 
 Copy a file from a public share URL 
