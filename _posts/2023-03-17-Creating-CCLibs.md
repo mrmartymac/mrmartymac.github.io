@@ -28,23 +28,23 @@ zip ModifiedCCLibrary.cclibs mimetype manifest \*/\*
 2. Choose **Send to**
 3. Choose **Compressed (zipped) folder**
 
-![1.png](/images/creating-new-cclibs-file/media/ssimage1.png){width="6.0in" height="3.7857972440944883in"}
+![1.png](/images/creating-new-cclibs-file/media/ssimage1.png){: w="400" }
 
 ## Add manifest to the zip {#add-manifest-to-the-zip .Substep-Heading}
 
 Drag **manifest** into **mimetype.zip**
 
-![1.png](/images/creating-new-cclibs-file/media/ssimage2.png){width="3.84375in" height="2.9166666666666665in"}
+![1.png](/images/creating-new-cclibs-file/media/ssimage2.png){: w="400" }
 
 ## Add all the subfolders to the zip {#add-all-the-subfolders-to-the-zip .Substep-Heading}
 
 1. Select all of the folders ensuring you do NOT include the manifest and mimetype files again.
 2. Drag them to **mimetype.zip**
 
-![1.png](/images/creating-new-cclibs-file/media/ssimage3.png){width="4.229166666666667in" height="3.28125in"}
+![1.png](/images/creating-new-cclibs-file/media/ssimage3.png){: w="400" }
 
 ## Rename mimetype.zip {#rename-mimetype.zip .Substep-Heading}
 
 Rename the mimetype.zip file to anything you want, just make sure the suffix is **.cclibs**
 
-![1.png](/images/creating-new-cclibs-file/media/ssimage4.png){width="3.7708333333333335in" height="1.8333333333333333in"}
+![1.png](/images/creating-new-cclibs-file/media/ssimage4.png){: w="400" }
