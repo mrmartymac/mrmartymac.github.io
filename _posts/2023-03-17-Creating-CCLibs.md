@@ -13,19 +13,10 @@ Library) file after chaning the paths to the images.
 
 ## Mac {#mac .Step-Heading}
 
-1.  Open Terminal
-
-```{=html}
-<!-- -->
-```
-1.  Change directories to the working directory you unzipped the
-    original cclibs file.
-
-2.  Make the changes you need to make.
-
-3.  Run the following command to create the new cclibs file. Choose
-    whatever name you want instead of \"ModifiedCCLibrary\". Be sure the
-    suffix of the file is cclibs.zip
+1. Open Terminal
+2. Change directories to the working directory you unzipped the original cclibs file.
+3. Make the changes you need to make.
+4. Run the following command to create the new cclibs file. Choose whatever name you want instead of \"ModifiedCCLibrary\". Be sure the suffix of the file is cclibs.zip
 
 zip ModifiedCCLibrary.cclibs mimetype manifest \*/\*
 
