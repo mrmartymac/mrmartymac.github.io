@@ -154,8 +154,15 @@ Copy a file from a public share URL
 wget --no-check-certificate 'https://thePublicShareFromGoogleDrive' -O DestinationFileName
 ```
 
-# Find large directories
+# File operations
+
+## Find large directories
 
 ```bash
 du -a | sort -n -r | head -n 5
+```
+
+## Move files based on time
+```bash
+find . -maxdepth 1 -type f -mtime +15 -exec mv {} <destPath> \;
 ```
