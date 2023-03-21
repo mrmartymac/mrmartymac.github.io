@@ -180,12 +180,12 @@ $ sudo  mysql -u root -p
 
 To create a database, database user, and grant all privileges to the database user run the following commands:
 
-```
-MariaDB [(none)]> CREATE DATABASE wordpress_db;
-MariaDB [(none)]> CREATE USER 'wordpress_user'@'localhost' IDENTIFIED BY 'PaSSw0rd';
-MariaDB [(none)]> GRANT ALL ON wordpress_db.* TO 'wordpress_user'@'localhost';
-MariaDB [(none)]> FLUSH PRIVILEGES;
-MariaDB [(none)]> EXIT
+```bash
+CREATE DATABASE wordpress_db;
+CREATE USER 'wordpress_user'@'localhost' IDENTIFIED BY 'PaSSw0rd';
+GRANT ALL ON wordpress_db.* TO 'wordpress_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT
 ```
 
 ## Step 5: Download WordPress on AlmaLinux 9
