@@ -1,0 +1,299 @@
+---
+title: Installing WordPress
+date: 2023-03-21 09:04:29 -500
+categories: [Installing Software]
+tags: [wordpress] # TAG names should always be lowercase
+author: mm
+---
+
+# Installing WordPress
+
+https://www.linuxtuto.com/how-to-install-wordpress-on-almalinux-9/
+
+**WordPress** is a free, open-source and one of the most popular Content Management System (CMS) written in **PHP**, combined with **MySQL/MariaDB** database. Millions of websites are currently running on it and remains perhaps the most popular CMS for blogging, which was its original use case.
+
+In this tutorial we’ll show you how to setup a [LAMP (Linux, Apache, MySQL/MariaDB, PHP)](https://www.linuxtuto.com/how-to-install-lamp-stack-on-almalinux-8-5/) stack and install WordPress on AlmaLinux 9 OS.
+
+## Step 1: Update Operating System
+
+Update your **AlmaLinux 9** operating system to make sure all existing packages are up to date:
+
+```
+$ sudo dnf update && sudo dnf upgrade -y
+```
+
+Also, install:
+
+```
+$ sudo dnf install nano wget unzip
+```
+
+## Step 2: Install Apache web server on AlmaLinux 9
+
+You can install Apache via `dnf` package manager by executing the following command.
+
+```
+$ sudo dnf install httpd
+```
+
+You can start the `httpd` service and configure it to run on startup by entering the following commands:
+
+```
+$ sudo systemctl start httpd
+$ sudo systemctl enable httpd
+```
+
+Verify the status of the `httpd` service using `systemctl status` command:
+
+```
+$ sudo systemctl status httpd
+```
+
+Output:
+
+```
+● httpd.service - The Apache HTTP Server
+     Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+     Active: active (running)
+       Docs: man:httpd.service(8)
+   Main PID: 10643 (httpd)
+     Status: "Total requests: 0; Idle/Busy workers 100/0;Requests/sec: 0; Bytes served/sec:   0 B/sec"
+      Tasks: 213 (limit: 5738)
+     Memory: 28.9M
+        CPU: 198ms
+     CGroup: /system.slice/httpd.service
+             ├─10643 /usr/sbin/httpd -DFOREGROUND
+             ├─10644 /usr/sbin/httpd -DFOREGROUND
+             ├─10645 /usr/sbin/httpd -DFOREGROUND
+             ├─10646 /usr/sbin/httpd -DFOREGROUND
+             └─10647 /usr/sbin/httpd -DFOREGROUND
+```
+
+If `firewalld` is enabled consider allowing `HTTP` and `HTTPS` services:
+
+```
+$ sudo firewall-cmd --permanent --add-service={http,https}
+$ sudo firewall-cmd --reload
+```
+
+You can test to make sure everything is working correctly by navigating to:
+
+```
+http://your-IP-address
+```
+
+If everything is configured properly, you should be greeted by the default Apache2 Page, as seen below.
+
+![AlmaLinux 9 Test Page](https://i0.wp.com/www.linuxtuto.com/wp-content/uploads/2022/05/AlmaLinux_Test_Page.jpg?resize=897%2C427&ssl=1)
+
+## Step 3: Install PHP and PHP extensions for WordPress
+
+You can install PHP and other supporting packages using the following command:
+
+```
+$ sudo dnf install php php-curl php-bcmath php-gd php-soap php-zip php-curl php-mbstring php-mysqlnd php-gd php-xml php-intl php-zip
+```
+
+Verify if PHP is installed.
+
+```
+php -v
+```
+
+Output:
+
+```
+PHP 8.0.13 (cli) (built: Nov 16 2021 18:07:21) ( NTS gcc x86_64 )
+Copyright (c) The PHP Group
+Zend Engine v4.0.13, Copyright (c) Zend Technologies
+with Zend OPcache v8.0.13, Copyright (c), by Zend Technologies
+```
+
+## Step 4: Install MariaDB and create a database
+
+You can install MariaDB with the following command:
+
+```
+$ sudo dnf install mariadb-server mariadb
+```
+
+Start the database server daemon, and also enable it to start automatically at the next boot with the following commands:
+
+```
+$ systemctl start mariadb
+$ systemctl enable mariadb
+```
+
+Verify the status of the `MariaDB` service using `systemctl status` command:
+
+```
+$ sudo systemctl status mariadb
+```
+
+Output:
+
+```
+● mariadb.service - MariaDB 10.5 database server
+     Loaded: loaded (/usr/lib/systemd/system/mariadb.service; enabled; vendor preset: disabled)
+     Active: active (running)
+       Docs: man:mariadbd(8)
+             https://mariadb.com/kb/en/library/systemd/
+   Main PID: 13088 (mariadbd)
+     Status: "Taking your SQL requests now..."
+      Tasks: 11 (limit: 5738)
+     Memory: 73.5M
+        CPU: 390ms
+     CGroup: /system.slice/mariadb.service
+             └─13088 /usr/libexec/mariadbd --basedir=/usr
+```
+
+Once the database server is installed, run the following command to secure your MariaDB server:
+
+```
+$ sudo mysql_secure_installation
+```
+
+Use the following options for the prompt.
+
+```
+Enter current password for root (enter for none): Just press the Enter
+Set root password? [Y/n]: Y
+New password: Enter your password
+Re-enter new password: Repeat your password
+Remove anonymous users? [Y/n]: Y
+Disallow root login remotely? [Y/n]: Y
+Remove test database and access to it? [Y/n]:  Y
+Reload privilege tables now? [Y/n]:  Y
+```
+
+Restart the database server for the changes to take effect.
+
+```
+$ sudo systemctl restart mariadb
+```
+
+Login to MariDB shell using the following command:
+
+```
+$ sudo  mysql -u root -p
+```
+
+To create a database, database user, and grant all privileges to the database user run the following commands:
+
+```
+MariaDB [(none)]> CREATE DATABASE wordpress_db;
+MariaDB [(none)]> CREATE USER 'wordpress_user'@'localhost' IDENTIFIED BY 'PaSSw0rd';
+MariaDB [(none)]> GRANT ALL ON wordpress_db.* TO 'wordpress_user'@'localhost';
+MariaDB [(none)]> FLUSH PRIVILEGES;
+MariaDB [(none)]> EXIT
+```
+
+## Step 5: Download WordPress on AlmaLinux 9
+
+We will now download the latest version of WordPress from the [WordPress Official site](https://wordpress.org/download/).
+
+Use the following command to download WordPress:
+
+```
+$ sudo wget https://wordpress.org/latest.zip
+```
+
+Extract file into the folder **/var/www/html/** with the following command,
+
+```
+$ sudo unzip latest.zip -d /var/www/html/
+```
+
+Change the permission of the website directory:
+
+```
+$ sudo chown -R apache:apache /var/www/html/wordpress/
+$ sudo chcon -t httpd_sys_rw_content_t /var/www/html/wordpress -R
+```
+
+## Step 6: Configure Apache Web Server for WordPress
+
+Navigate to `/etc/httpd/conf.d` directory and run the following command to create a configuration file for your installation:
+
+```
+$ sudo nano /etc/httpd/conf.d/wordpress.conf
+```
+
+Add the following content:
+
+```
+<VirtualHost *:80>
+
+ServerAdmin webmaster@your-domain.com
+
+ServerName your-domain.com
+ServerAlias www.your-domain.com
+DocumentRoot /var/www/html/wordpress
+
+<Directory /var/www/html/wordpress/>
+        Options FollowSymlinks
+        AllowOverride All
+        Require all granted
+</Directory>
+
+ErrorLog /var/log/httpd/your-domain.com_error.log
+CustomLog /var/log/httpd/your-domain.com_access.log combined
+
+</VirtualHost>
+```
+
+Save the file and Exit.
+
+Restart the Apache web server.
+
+```
+$ sudo systemctl restart httpd
+```
+
+## Step 7: Access WordPress Web Installer
+
+Open your browser type your domain e.g `http://your-domain.com`  and click on the **`Let's go!`** button to complete the required steps:
+
+![WordPress install Almalinux 9](https://i0.wp.com/www.linuxtuto.com/wp-content/uploads/2022/05/WordPress_Install.jpg?resize=897%2C427&ssl=1)
+
+Provide the requested database information and click on the **`Submit`** button:
+
+![WordPress install database](https://i0.wp.com/www.linuxtuto.com/wp-content/uploads/2022/05/wordpress-install-database.jpg?resize=897%2C427&ssl=1)
+
+Start WordPress Installation by clicking on the **`Run the installation`** button:
+
+![WordPress run the installation](https://i0.wp.com/www.linuxtuto.com/wp-content/uploads/2022/05/wordpress-run-installation.jpg?resize=897%2C257&ssl=1)
+
+Provide the requested information and click on the **`Install WordPress`** button:
+
+![WordPress Welcome Page](https://i0.wp.com/www.linuxtuto.com/wp-content/uploads/2022/05/wordpress-welcome-page.jpg?resize=897%2C512&ssl=1)
+
+Once the WordPress is installed, enter your administrator user, password and click on the **`Log In`** button:
+
+![WP Login Page](https://i0.wp.com/www.linuxtuto.com/wp-content/uploads/2022/05/wordpress-login.jpg?resize=897%2C391&ssl=1)
+
+You will get the dashboard in the following screen:
+
+![WordPress Dashboard](https://i0.wp.com/www.linuxtuto.com/wp-content/uploads/2022/05/wordpress-dashboard.jpg?resize=897%2C432&ssl=1)
+
+## Comments and Conclusion
+
+That’s it. You have successfully installed WordPress CMS (Content Management System) on AlmaLinux 9 OS.
+
+If you have any questions please leave a comment below.
+
+
+## Database commands for easy copy
+
+```bash
+CREATE DATABASE wordpress_db;
+CREATE USER 'wordpress_user'@'localhost' IDENTIFIED BY 'PaSSw0rd';
+GRANT ALL ON wordpress_db.* TO 'wordpress_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT
+```
+
+
+## Fix for MySQL missing in PHP 
+
+`sudo apt-get install phpmyadmin`
