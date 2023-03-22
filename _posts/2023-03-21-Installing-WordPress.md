@@ -19,13 +19,13 @@ In this tutorial we’ll show you how to setup a [LAMP (Linux, Apache, MySQL/Mar
 Update your **AlmaLinux 9** operating system to make sure all existing packages are up to date:
 
 ```
-$ sudo dnf update && sudo dnf upgrade -y
+sudo dnf update && sudo dnf upgrade -y
 ```
 
 Also, install:
 
 ```
-$ sudo dnf install nano wget unzip
+sudo dnf install nano wget unzip
 ```
 
 ## Step 2: Install Apache web server on AlmaLinux 9
@@ -33,20 +33,20 @@ $ sudo dnf install nano wget unzip
 You can install Apache via `dnf` package manager by executing the following command.
 
 ```
-$ sudo dnf install httpd
+sudo dnf install httpd
 ```
 
 You can start the `httpd` service and configure it to run on startup by entering the following commands:
 
 ```
-$ sudo systemctl start httpd
-$ sudo systemctl enable httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
 ```
 
 Verify the status of the `httpd` service using `systemctl status` command:
 
 ```
-$ sudo systemctl status httpd
+sudo systemctl status httpd
 ```
 
 Output:
@@ -72,8 +72,8 @@ Output:
 If `firewalld` is enabled consider allowing `HTTP` and `HTTPS` services:
 
 ```
-$ sudo firewall-cmd --permanent --add-service={http,https}
-$ sudo firewall-cmd --reload
+sudo firewall-cmd --permanent --add-service={http,https}
+sudo firewall-cmd --reload
 ```
 
 You can test to make sure everything is working correctly by navigating to:
@@ -91,7 +91,7 @@ If everything is configured properly, you should be greeted by the default Apach
 You can install PHP and other supporting packages using the following command:
 
 ```
-$ sudo dnf install php php-curl php-bcmath php-gd php-soap php-zip php-curl php-mbstring php-mysqlnd php-gd php-xml php-intl php-zip
+sudo dnf install php php-curl php-bcmath php-gd php-soap php-zip php-curl php-mbstring php-mysqlnd php-gd php-xml php-intl php-zip
 ```
 
 Verify if PHP is installed.
@@ -109,48 +109,37 @@ Zend Engine v4.0.13, Copyright (c) Zend Technologies
 with Zend OPcache v8.0.13, Copyright (c), by Zend Technologies
 ```
 
-## Step 4: Install MariaDB and create a database
+## Step 4: Install mysql and create a database
 
-You can install MariaDB with the following command:
+Install mysql client the following command:
 
 ```
-$ sudo dnf install mariadb-server mariadb
+sudo dnf install mysql
+```
+
+Install mysql server 
+
+```
+sudo dnf install mysql-server
 ```
 
 Start the database server daemon, and also enable it to start automatically at the next boot with the following commands:
 
 ```
-$ systemctl start mariadb
-$ systemctl enable mariadb
+sudo systemctl start mysqld
+sudo systemctl enable mysqld
 ```
 
-Verify the status of the `MariaDB` service using `systemctl status` command:
+Verify the status of the `MySQL` service using `systemctl status` command:
 
 ```
-$ sudo systemctl status mariadb
-```
-
-Output:
-
-```
-● mariadb.service - MariaDB 10.5 database server
-     Loaded: loaded (/usr/lib/systemd/system/mariadb.service; enabled; vendor preset: disabled)
-     Active: active (running)
-       Docs: man:mariadbd(8)
-             https://mariadb.com/kb/en/library/systemd/
-   Main PID: 13088 (mariadbd)
-     Status: "Taking your SQL requests now..."
-      Tasks: 11 (limit: 5738)
-     Memory: 73.5M
-        CPU: 390ms
-     CGroup: /system.slice/mariadb.service
-             └─13088 /usr/libexec/mariadbd --basedir=/usr
+sudo systemctl status mysqld
 ```
 
 Once the database server is installed, run the following command to secure your MariaDB server:
 
 ```
-$ sudo mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
 Use the following options for the prompt.
@@ -169,13 +158,19 @@ Reload privilege tables now? [Y/n]:  Y
 Restart the database server for the changes to take effect.
 
 ```
-$ sudo systemctl restart mariadb
+sudo systemctl restart mysqld
 ```
 
-Login to MariDB shell using the following command:
+Ensure Firewall is open
+```
+sudo firewall-cmd --zone=public --add-service=mysql --permanent
+sudo firewall-cmd --reload
+```
+
+Login to mysql shell using the following command:
 
 ```
-$ sudo  mysql -u root -p
+sudo  mysql -u root -p
 ```
 
 To create a database, database user, and grant all privileges to the database user run the following commands:
@@ -183,7 +178,7 @@ To create a database, database user, and grant all privileges to the database us
 ```bash
 CREATE DATABASE wordpress_db;
 CREATE USER 'wordpress_user'@'localhost' IDENTIFIED BY 'PaSSw0rd';
-GRANT ALL ON wordpress_db.* TO 'wordpress_user'@'localhost';
+GRANT ALL ON wordpress_db.* TO 'wordpress_user'@'%';
 FLUSH PRIVILEGES;
 EXIT
 ```
@@ -195,20 +190,20 @@ We will now download the latest version of WordPress from the [WordPress Officia
 Use the following command to download WordPress:
 
 ```
-$ sudo wget https://wordpress.org/latest.zip
+sudo wget https://wordpress.org/latest.zip
 ```
 
 Extract file into the folder **/var/www/html/** with the following command,
 
 ```
-$ sudo unzip latest.zip -d /var/www/html/
+sudo unzip latest.zip -d /var/www/html/
 ```
 
 Change the permission of the website directory:
 
 ```
-$ sudo chown -R apache:apache /var/www/html/wordpress/
-$ sudo chcon -t httpd_sys_rw_content_t /var/www/html/wordpress -R
+sudo chown -R apache:apache /var/www/html/wordpress/
+sudo chcon -t httpd_sys_rw_content_t /var/www/html/wordpress -R
 ```
 
 ## Step 6: Configure Apache Web Server for WordPress
@@ -216,7 +211,7 @@ $ sudo chcon -t httpd_sys_rw_content_t /var/www/html/wordpress -R
 Navigate to `/etc/httpd/conf.d` directory and run the following command to create a configuration file for your installation:
 
 ```
-$ sudo nano /etc/httpd/conf.d/wordpress.conf
+sudo nano /etc/httpd/conf.d/wordpress.conf
 ```
 
 Add the following content:
@@ -247,7 +242,7 @@ Save the file and Exit.
 Restart the Apache web server.
 
 ```
-$ sudo systemctl restart httpd
+sudo systemctl restart httpd
 ```
 
 ## Step 7: Access WordPress Web Installer
@@ -281,6 +276,87 @@ You will get the dashboard in the following screen:
 That’s it. You have successfully installed WordPress CMS (Content Management System) on AlmaLinux 9 OS.
 
 If you have any questions please leave a comment below.
+
+
+# If there is trouble with the version of php, needs to be > 8.0, use these steps.
+
+## PHP 8.0 Installation on AlmaLinux or Rocky Linux
+
+### Step 1. Add Remi Repository on your Linux
+
+By default, the version of PHP available on our **AlmaLinux** or **Rocky** to install is **PHP 7.2**, so to get the latest version i.e **8.0** we need to add the third-party repository to get the wide range of PHP versions.
+
+```
+sudo dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+```
+
+### Step 2: Run system update
+
+To update the package repository so that our system could recognize the added newly repo, run the system update command:
+
+```
+sudo dnf update
+```
+
+### Step 3: Check available PHP module
+
+Let’s check what are the available version of PHP on our AlmaLinux to install. For that run module list command to it using the DNF package manager.
+
+```
+sudo dnf module list php
+```
+
+You will see the PHP 8.0 version along with PHP 7.x to install in Remi’s Module repository for Enterprise Linux 8.
+
+[![Check available php module in REMI repo on AlamLinux](https://www.how2shout.com/linux/wp-content/uploads/2021/06/Check-available-php-module-in-REMI-repo-on-AlamLinux.jpg "Check available php module in REMI repo on AlamLinux")](https://www.how2shout.com/linux/wp-content/uploads/2021/06/Check-available-php-module-in-REMI-repo-on-AlamLinux.jpg)
+
+### Step 4: Enable php:remi-8.0 module
+
+As there are multiple versions of PHP to install, thus we have to mention the version along with the repo name to enable the default source to get this scripting packages to install on our system. Here is the command to run but first reset the PHP module set for system repository packages.
+
+```
+sudo dnf module reset php
+```
+
+**And then run:**
+
+```
+sudo dnf module enable php:remi-8.0
+```
+
+**Note**: In case you want to enable some other module version of PHP, then just change the version number in the above-given command.
+
+### Step 5: Command to install PHP 8.0 on AlmaLinux/Rocky from Remi Repo
+
+Finally, run the command that will install the latest PHP on our Linux system.
+
+```
+sudo dnf install php -y
+```
+
+[![PHP 8.0 installation almalinux 8 or rocky](https://www.how2shout.com/linux/wp-content/uploads/2021/06/PHP-8.0-installation-almalinux-8-or-rocky.jpg "PHP 8.0 installation almalinux 8 or rocky")](https://www.how2shout.com/linux/wp-content/uploads/2021/06/PHP-8.0-installation-almalinux-8-or-rocky.jpg)
+
+To install any particular extension, use the following syntax:
+
+```
+sudo dnf install php-extension-name
+```
+
+To check what are the installed and active extensions for your PHP, use:
+
+```
+php -m
+```
+
+### Step 5: Check Version
+
+Once the installation is completed, let’s check what is the version finally we have on our system.
+
+```
+php -v
+```
+
+[![Check Version](https://www.how2shout.com/linux/wp-content/uploads/2021/06/Check-Version.jpg "Check Version")](https://www.how2shout.com/linux/wp-content/uploads/2021/06/Check-Version.jpg)
 
 
 ## Database commands for easy copy

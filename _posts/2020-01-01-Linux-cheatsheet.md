@@ -166,3 +166,11 @@ du -a | sort -n -r | head -n 5
 ```bash
 find . -maxdepth 1 -type f -mtime +15 -exec mv {} <destPath> \;
 ```
+
+# Network commands
+
+Checking for ports being listened to
+
+```
+dnf install mysql-server
+```
