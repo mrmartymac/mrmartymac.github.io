@@ -5,8 +5,6 @@ categories: [Cheatsheet, Linux]
 tags: [linux] # TAG names should always be lowercase
 author: mm
 ---
-# Linux Cheatsheet
-
 # Configure your profile to use Nano as the default editor
 
 First, insatall Nano

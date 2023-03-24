@@ -5,10 +5,6 @@ categories: [Documentation, PageTrack]
 tags: [documentation, server, pagetrack] # TAG names should always be lowercase
 author: mm
 ---
-
-# PageTrack Configuration Documentation
-
-
 PageTrack configuration is now stored in INI format. Most of it can be edited via the `File -> Preferences` window
 in PageTrack Product Manager.
 

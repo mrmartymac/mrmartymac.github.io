@@ -5,9 +5,6 @@ categories: [Installing Software]
 tags: [wordpress] # TAG names should always be lowercase
 author: mm
 ---
-
-# Installing WordPress
-
 https://www.linuxtuto.com/how-to-install-wordpress-on-almalinux-9/
 
 **WordPress** is a free, open-source and one of the most popular Content Management System (CMS) written in **PHP**, combined with **MySQL/MariaDB** database. Millions of websites are currently running on it and remains perhaps the most popular CMS for blogging, which was its original use case.

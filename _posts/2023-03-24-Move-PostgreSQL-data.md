@@ -5,8 +5,6 @@ categories: [Cheatsheet, PostgreSQL]
 tags: [potgres, postgresql, pgsql, synlink] # TAG names should always be lowercase
 author: mm
 ---
-# How to move PostgreSQL data   
-
 Moving the data folder for postgresql from the default location to another partition and creating a symlink.
 
 > Be sure to do both steps on the Primary and DR server if one exists.
