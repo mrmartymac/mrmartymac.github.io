@@ -174,3 +174,11 @@ Checking for ports being listened to
 ```
 dnf install mysql-server
 ```
+
+# Elevation
+
+Elevate to another user as long as I have sudo
+
+```
+sudo su - <username>
+```

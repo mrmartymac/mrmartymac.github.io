@@ -8,6 +8,10 @@ author: mm
 # Database configuration
 
 ## Create databse
+Open PSQL
+```
+psql -U postgres
+```
 
 ```sql
 CREATE USER elibrary;
@@ -47,20 +51,28 @@ Postgres-# \c elibrary_db
 Postgres-# \i tableName.sql
 ```
 Drop the current DB
-	dropdb -U postgres elibrary_db
+```
+dropdb -U postgres elibrary_db
+```
 
 Open PSQL
-	psql -U postgres
-
+```
+psql -U postgres
+```
 Create new Scoop DB
-	CREATE DATABASE elibrary_db;
+```
+CREATE DATABASE elibrary_db;
+```
 
 To exit PSQL type:
-	\q
+```
+\q
+```
 
 Restore the database
-	psql -U postgres -d elibrary_db -f <BackupFile>.sql
-	
+```
+psql -U postgres -d elibrary_db -f <BackupFile>.sql
+```	
 	
 
 # eLibary manager location
