@@ -180,3 +180,9 @@ Elevate to another user as long as I have sudo
 ```
 sudo su - <username>
 ```
+
+# Journalctl following
+
+```bash
+journalctl -fxu ScoopDaemon
+```
