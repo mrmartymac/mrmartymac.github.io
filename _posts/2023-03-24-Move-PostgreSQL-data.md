@@ -24,7 +24,7 @@ systemctl stop postgresql
 mkdir /u/postgres
 chmod 700 /u/postgres
 chown postgres:postgres /u/postgres
-mv /var/lib/pgsql/* /u/postgres/
+mv /var/lib/pgsql/ /u/postgres/
 ln -s /u/postgres /var/lib/pgsql
 ```
 
