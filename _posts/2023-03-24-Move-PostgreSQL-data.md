@@ -10,22 +10,27 @@ Moving the data folder for postgresql from the default location to another parti
 > Be sure to do both steps on the Primary and DR server if one exists.
 {: .prompt-warning }
 
+Elevate to root using `su`
+
 ```bash
-sudo pg_dump -U postgres scoop_db > <date>_scoop_db.dump
-sudo systemctl stop murbsd
-sudo systemctl stop ScoopDaemon
-sudo systemctl stop postgresql
+pg_dump -U postgres scoop_db > <date>_scoop_db.dump
+systemctl stop murbsd
+systemctl stop ScoopDaemon
+systemctl stop postgresql
 ```
 >Elevate to root
 {: .prompt-info }
 
 ```bash
+mkdir /u/postgres
+chmod 700 /u/postgres
+chown postgres:postgres /u/postgres
 mv /var/lib/pgsql/* /u/postgres/
-sudo ln -s /u/postgres /var/lib/pgsql
+ln -s /u/postgres /var/lib/pgsql
 ```
 
 ```bash
-sudo systemctl start postgresql
-sudo systemctl start ScoopDaemon
-sudo systemctl start murbsd
+systemctl start postgresql
+systemctl start ScoopDaemon
+systemctl start murbsd
 ```
