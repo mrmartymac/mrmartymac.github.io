@@ -10,7 +10,8 @@ Moving the data folder for postgresql from the default location to another parti
 > Be sure to do both steps on the Primary and DR server if one exists.
 {: .prompt-warning }
 
-Elevate to root using `su`
+>Elevate to root
+{: .prompt-info }
 
 ```bash
 pg_dump -U postgres scoop_db > <date>_scoop_db.dump
@@ -18,8 +19,6 @@ systemctl stop murbsd
 systemctl stop ScoopDaemon
 systemctl stop postgresql
 ```
->Elevate to root
-{: .prompt-info }
 
 ```bash
 mkdir /u/postgres
