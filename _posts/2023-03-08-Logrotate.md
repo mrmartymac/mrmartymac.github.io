@@ -1,8 +1,8 @@
 ---
 title: How to configure logrotate
 date: 2023-03-08 15:12:45 -500
-categories: [cat1, cat2]
-tags: [tag1, tag2] # TAG names should always be lowercase
+categories: [Cheatsheet, Linux, Logs]
+tags: [logrotate, maintenance] # TAG names should always be lowercase
 author: mm
 ---
 # The purpose of logrotate
