@@ -26,8 +26,12 @@ Add the user preference
 tar -czvf file.tar.gz directory
 ```
 
-## To extract contents of tar file
+## To create a tar file
+```bash
+tar -cf <fn> file1 file2 file3
+```
 
+## To extract contents of tar file
 ```bash
 tar -xvzf my-data.tar.gz 
 ```
@@ -55,6 +59,8 @@ To edit crontab
 ```bash
 */5 * * * * /usr/bin/sudo /usr/bin/find /u/scoop/images/ -type f -perm 644 -exec chmod 666 {} \;
 ```
+
+You can also create a file on `/etc/cron.d` with the crontab entry and it will be run as scheduled.
 
 # smb
 
@@ -160,6 +166,11 @@ wget --no-check-certificate 'https://thePublicShareFromGoogleDrive' -O Destinati
 du -a | sort -n -r | head -n 5
 ```
 
+## Find files base on permissions and change the permissions
+```bash
+sudo find /u/scoop/images/ -type f -perm 644 -exec chmod 666 {} \;
+```
+
 ## Move files based on time
 ```bash
 find . -maxdepth 1 -type f -mtime +15 -exec mv {} <destPath> \;
@@ -168,21 +179,70 @@ find . -maxdepth 1 -type f -mtime +15 -exec mv {} <destPath> \;
 # Network commands
 
 Checking for ports being listened to
-
-```
+```bash
 dnf install mysql-server
 ```
 
 # Elevation
 
 Elevate to another user as long as I have sudo
-
 ```
 sudo su - <username>
 ```
 
 # Journalctl following
-
 ```bash
 journalctl -fxu ScoopDaemon
+```
+
+# Misc
+List all installed packages and grep for one
+rpm -qa | grep php
+
+GET VERSIONS
+`PHP --version`
+
+GET LINUX VERSION
+`cat /etc/redhat-release`
+
+Remove directories with files
+`rm -rf dir-name`
+
+Linux logs
+`journalctl -u ScoopDaemon | grep -i `  
+`journalctl -u ScoopDaemon -n 500`
+
+# CREATING USER
+## Add scoopadmin user to the system
+```bash
+useradd -g scs -c "scoop admin user" -s /bin/bash -d /u/users_scs/scoopadmin -u 7000 -m scoopadmin
+```
+
+## Set password
+`passwd scoopadmin`
+
+## Create scoop Group
+`groupadd scoop`
+
+## Add user to Scoop Group
+`usermod -a -G scoop scoopadmin`
+
+## Add ScoopAdmin to sudoers
+`usermod -aG wheel scoopadmin`
+
+## Enabling PHP
+```bash
+sudo systemctl status php-fpm
+sudo systemctl start php-fpm
+sudo systemctl enable php-fpm
+```
+
+## Setting default linux editor
+Log in to your account using SSH.
+Open the `.bashrc` file in your preferred text editor.
+Add the following lines to the `.bashrc` file. Replace both occurrences of program with the editor you want to set as the default editor:
+
+```bash
+export EDITOR='program'
+export VISUAL='program'
 ```
