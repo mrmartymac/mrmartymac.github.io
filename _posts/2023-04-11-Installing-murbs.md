@@ -28,7 +28,10 @@ This process should only be performed once, on the (initial) primary.
 1. `yum install scs-murbs...rpm`
 2. Run `murbs init` (as root.)
 - This will create the `murbs` user, set up configuration directories, etc.
+** MM: running this the first time resulted in errors, running it a second time resulted in being prompted for the murbs password which was not yet set.  I ran passwd to set a password for murbs user.  Then the command completed after confirming the ip address of the machine and using the password.**
+
 3. Allow the `wheel` group to run `sudo` with no password.
+
 - This is necessary for `murbsd` to be able to sudo.
 - Just run `visudo`, locate the `## Same thing without a password` line, and uncomment it.
 - Type `:x` to save and exit

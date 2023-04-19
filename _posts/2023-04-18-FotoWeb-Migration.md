@@ -1,6 +1,6 @@
 ---
 title: FotoWeb Migration to new server
-date: 2023-04-18 14:02:39 -500
+date: 2023-04-18 14:02:39 -400
 categories: [FotoWeb, Migration]
 tags: [fotoware, fotoweb, migration] # TAG names should always be lowercase
 author: mm
