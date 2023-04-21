@@ -174,8 +174,8 @@ To create a database, database user, and grant all privileges to the database us
 
 ```bash
 CREATE DATABASE wordpress_db;
-CREATE USER 'wordpress_user'@'localhost' IDENTIFIED BY 'PaSSw0rd';
-GRANT ALL ON wordpress_db.* TO 'wordpress_user'@'%';
+CREATE USER 'wordpress_user'@'localhost' IDENTIFIED BY 'PaSSw0rd2023^';
+GRANT ALL PRIVILEGES ON wordpress_db.* TO 'wordpress_user'localhost'%';
 FLUSH PRIVILEGES;
 EXIT
 ```
