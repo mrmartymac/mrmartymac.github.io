@@ -6,7 +6,7 @@ tags: [postgres, psql, database, dump, restore, scoop_db] # TAG names should alw
 author: mm
 ---
 
-Dump the database
+Dump the database 
 ```
 pg_dump -U postgres scoop_db > Scoop.dump
 ```
