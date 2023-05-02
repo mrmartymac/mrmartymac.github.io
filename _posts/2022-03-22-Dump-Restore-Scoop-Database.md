@@ -1,8 +1,8 @@
 ---
-title: Scoop Database Cheatsheat
+title: Dump and Restore a Scoop database
 date: 2023-03-22 14:25:24 -400
 categories: [Cheatsheet, PostgreSQL]
-tags: [postgres, psql, database] # TAG names should always be lowercase
+tags: [postgres, psql, database, dump, restore, scoop_db] # TAG names should always be lowercase
 author: mm
 ---
 
