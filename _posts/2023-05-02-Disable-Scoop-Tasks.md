@@ -8,12 +8,12 @@ author: mm
 Connect to the postgres database and run the command shown below to disable active tasks.
 
 Open PSQL
-```sql
+```bash
 psql -U postgres
 ```
 
 Connect to the Scoop database
-```sql
+```bash
 \c scoop_db
 ```
 
