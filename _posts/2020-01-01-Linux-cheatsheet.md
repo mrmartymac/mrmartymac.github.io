@@ -225,10 +225,14 @@ useradd -g scs -c "scoop admin user" -s /bin/bash -d /u/users_scs/scoopadmin -u 
 `groupadd scoop`
 
 ## Add user to Scoop Group
-`usermod -a -G scoop scoopadmin`
+```bash
+usermod -a -G scoop scoopadmin
+```
 
 ## Add ScoopAdmin to sudoers
-`usermod -aG wheel scoopadmin`
+```bash
+usermod -aG wheel scoopadmin
+```
 
 ## Enabling PHP
 ```bash
