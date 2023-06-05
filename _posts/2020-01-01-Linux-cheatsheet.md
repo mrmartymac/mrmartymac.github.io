@@ -165,7 +165,12 @@ wget --no-check-certificate 'https://thePublicShareFromGoogleDrive' -O Destinati
 ```bash
 du -a | sort -n -r | head -n 5
 ```
+## Find and count large files
+Removing the `| wc-l` option will return the list.  
 
+```bash
+find /u/scoop/images -type f -name *.docx -size +6M | wc -l
+```
 ## Find files base on permissions and change the permissions
 ```bash
 sudo find /u/scoop/images/ -type f -perm 644 -exec chmod 666 {} \;
