@@ -1,3 +1,11 @@
+---
+title: Field Guide to Photo Metadata 
+date: 2023-06-26 09:40:14 -400
+categories: [Documentation, FotoWare]
+tags: [iptc, metadata, xmp] # TAG names should always be lowercase
+author: (http://www.photometadata.org/meta-resources-field-guide-to-metadata)
+---
+
 Our "Field Guide" provides a valuable resource for photo metadata users. It lists and defines the most commonly used fields in key metadata schema and in popular software.
 
 If you are trying to compare what fields labels are matches between various applications (like Photoshop, Lightroom, Bridge or iView), you may find the charts in the [_"IPTC Core Mapped Fields"_](http://www.controlledvocabulary.com/imagedatabases/iptc_core_mapped.pdf "IPTC Core Mapped Fields PDF on the ControlledVocabulary.com website") PDF, (available from the [ControlledVocabulary.com](http://www.controlledvocabulary.com/ "ControlledVocabulary.com website") website) to be helpful.
