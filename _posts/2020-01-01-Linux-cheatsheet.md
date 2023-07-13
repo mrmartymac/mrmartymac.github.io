@@ -163,7 +163,7 @@ wget --no-check-certificate 'https://thePublicShareFromGoogleDrive' -O Destinati
 ## Find large directories
 
 ```bash
-du -a | sort -n -r | head -n 5
+du -hs * | sort -rh | head -5
 ```
 ## Find and count large files
 Removing the `| wc-l` option will return the list.  
