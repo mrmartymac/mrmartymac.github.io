@@ -15,5 +15,5 @@ grep \"id\" scoop_export.json
 
 The Mac App called **JSON Query** is easy to use to filter the JSON result from the URL.
 
-![JSON Query](/images/misc/jsonquery.png){: w="400" }{: .right }
+![JSON Query](/images/misc/jsonquery.png){: w="400" }
 
