@@ -181,6 +181,10 @@ sudo find /u/scoop/images/ -type f -perm 644 -exec chmod 666 {} \;
 find . -maxdepth 1 -type f -mtime +15 -exec mv {} <destPath> \;
 ```
 
+## Remove files of a specific extension recursively
+```bash
+find . -type f -name '*.json' -delete
+```
 # Network commands
 
 Checking for ports being listened to
