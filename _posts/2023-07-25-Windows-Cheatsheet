@@ -1,0 +1,11 @@
+---
+title: Windws Cheatsheet
+date: 2023-07-25 10:13:19 -400
+categories: [Cheatsheets, Windows]
+tags: [ports, testing, networking] # TAG names should always be lowercase
+author: mm
+---
+## Test for open ports on Windows
+```bash
+netstat -aon
+```

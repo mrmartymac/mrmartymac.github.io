@@ -147,9 +147,21 @@ umask 0002
 > Be certain to log off nad back in before testing the changes to your .bash_profile.  The change to your umask will not take effect until the user logs out and back in.
 {: .prompt-warning }
 
-# Congifure inherited permisions with setfacl
+## Congifure inherited permisions with setfacl
 
 `sudo setfacl -dm u::rwx,g::rwx,o::rwx <path>`
+
+[Reference:](https://www.redhat.com/sysadmin/linux-access-control-lists)
+
+Look at the current ACL
+```bash
+getfacl <directory>
+```
+
+Change the Default Owner of the directory
+```bash
+setfacl -d -m scoop:rwx <directory>
+```
 # Google Drive
 
 Copy a file from a public share URL 
