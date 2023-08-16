@@ -1,8 +1,8 @@
 ---
 title: Installing WordPress
 date: 2023-03-21 09:04:29 -500
-categories: [Installing Software]
-tags: [wordpress] # TAG names should always be lowercase
+categories: [Installation, WordPress]
+tags: [wordpress, cms] # TAG names should always be lowercase
 author: mm
 ---
 https://www.linuxtuto.com/how-to-install-wordpress-on-almalinux-9/
