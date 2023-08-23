@@ -25,22 +25,26 @@ Test the current status
 /etc/mirror/mirror.test
 ```
 
+There is a better way to test,Use this to test in crontab.  It is run as the mirror user. It removes the requirement to be root to run the test.
+/etc/mirror/mirror_test
+
+
+
 ## How to determine which is primary and which is secondary
 Look in mirror.conf to see if this method is used.
 
-Checking the current or previous role
+## Checking the current or previous role
 ```
 cd /u/ha/log
 cat mirror_role.log 
 ```
 
-To make the server Primary
+Make the server Primary
+```
 /etc/mirror/mkprime
+```
 Answer NO
 
-
-Better way to test,Use this to test in crontab.  It is run as the mirror user. It removes the requirement to be root to run the test.
-/etc/mirror/mirror_test
 
 
 
