@@ -26,7 +26,7 @@ curl --location --request POST 'http://10.0.0.184/wp-json/jwt-auth/v1/token' \
 --header 'Content-Type: application/json' \
 --data '{
     "username": "mmacdonald",
-    "password": "2010RedBank" 
+    "password": "*********" 
 }'
 ```
 
