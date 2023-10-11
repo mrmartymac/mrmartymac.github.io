@@ -64,3 +64,32 @@ FOR CRM
 run mkprime
 run mirror_test
 restart murbsd
+
+## October 11, 2023
+### Resetting MMurbs at CRM
+
+Become root
+```bash
+sudo su -
+```
+Stop murbs
+```bash
+systemctl stop murbsd
+```
+### On DR server
+
+Remove any residual `gz` files 
+```bash
+rm -f /etc/murbs/working/postgres/in/*.gz
+```
+
+### On Primary
+Remove the `error` file, start `murbsd` and run a `fullsync`
+```bash
+rm /etc/murbs/error
+systemctl start murbsd
+murbs fullsync
+```
+
+## NOTE ABOUT journaltctl error about 10 files
+It seems this is a red herring and is not a problem.  Murbs is detecting the presence of multiple past postgresql log dumps and using this as the trigger to clean them up
