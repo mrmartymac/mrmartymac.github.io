@@ -90,5 +90,5 @@ systemctl start murbsd
 murbs fullsync
 ```
 
-## NOTE ABOUT journaltctl error about 10 files  
+## NOTE about journaltctl error about 10 files  
 It seems this is a red herring and is not a problem.  Murbs is detecting the presence of multiple past postgresql log dumps and using this as the trigger to clean them up
