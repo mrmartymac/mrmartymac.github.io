@@ -123,14 +123,14 @@ sudo dnf install mysql-server
 Start the database server daemon, and also enable it to start automatically at the next boot with the following commands:
 
 ```
-sudo systemctl start mysqld
-sudo systemctl enable mysqld
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
 ```
 
 Verify the status of the `MySQL` service using `systemctl status` command:
 
 ```
-sudo systemctl status mysqld
+sudo systemctl status mariadb
 ```
 
 Once the database server is installed, run the following command to secure your MariaDB server:
@@ -155,7 +155,7 @@ Reload privilege tables now? [Y/n]:  Y
 Restart the database server for the changes to take effect.
 
 ```
-sudo systemctl restart mysqld
+sudo systemctl restart mariadb
 ```
 
 Ensure Firewall is open
@@ -175,7 +175,7 @@ To create a database, database user, and grant all privileges to the database us
 ```bash
 CREATE DATABASE wordpress_db;
 CREATE USER 'wordpress_user'@'localhost' IDENTIFIED BY 'PaSSw0rd2023^';
-GRANT ALL PRIVILEGES ON wordpress_db.* TO 'wordpress_user'localhost'%';
+GRANT ALL PRIVILEGES ON wordpress_db.* TO 'wordpress_user'@localhost;
 FLUSH PRIVILEGES;
 EXIT
 ```
