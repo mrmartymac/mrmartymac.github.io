@@ -79,7 +79,7 @@ systemctl stop murbsd
 ### On DR server  
 Remove any residual `gz` files 
 ```bash
-rm -f /etc/murbs/working/postgres/in/*.gz
+rm -f /etc/murbs/work/postgres/in/*.gz
 ```
 
 ### On Primary  
