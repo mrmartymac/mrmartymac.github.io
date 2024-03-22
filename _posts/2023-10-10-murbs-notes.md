@@ -51,14 +51,16 @@ Answer NO
 
 MURBS
 Check if murbs is running.
+```
 ps -ef | grep -i murbs
-
+```
 
 systemctl status murbsd
 
 Running full sync
+```
 murbs fullsync
-
+```
 
 FOR CRM
 run mkprime
