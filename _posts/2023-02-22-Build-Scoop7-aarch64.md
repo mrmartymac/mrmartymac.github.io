@@ -7,6 +7,26 @@ author: mm
 ---
 Instructions on building Scoop on the Parallels hosted AlmaLinux server which is an AlmaLinux 9 aarch64 version to support my M1 processor.
 
+## Creating initial clone 
+Create the directory  
+```
+/u/SCOOP/scoop_development/scoop
+```
+Generate the key for SSH to be added to github.com - **NOTE** Use the default and do not rename the file. Take note of the ID.numeric name.  
+```
+ssh-keygen -t ed25519 -C "marty@newspapersystems.com"
+```
+Run the less command on the key to copy and paste into github.com  
+```
+less ~/.ssh/<keyname>
+```
+Copy the string so that you can paste it in to gethub.com.  
+[https://github.com/settings/keys](https://github.com/settings/keys)  
+
+```
+git clone git@github.com:newspapersystems/scoop.git
+```
+
 ## Updating yum repository
 ```bash
 cd /u/SCOOP/scoop_development/scoop
