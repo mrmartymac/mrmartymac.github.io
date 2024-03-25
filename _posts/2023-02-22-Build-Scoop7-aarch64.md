@@ -24,6 +24,7 @@ Copy the string so that you can paste it in to gethub.com.
 [https://github.com/settings/keys](https://github.com/settings/keys)  
 
 ```
+cd /u/SCOOP/scoop_development/scoop
 git clone git@github.com:newspapersystems/scoop.git
 ```
 
