@@ -101,4 +101,14 @@ psql -U postgres
 \i tableName.sql
 ```
 
+## Addendum
+Upgrade pip because why not
+```
+python3 -m pip install --upgrade pip
+```
+
+Install pypdfium2
+```
+python3 -m pip install -U pypdfium2
+```
 	
