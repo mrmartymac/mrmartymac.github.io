@@ -271,3 +271,9 @@ Add the following lines to the `.bashrc` file. Replace both occurrences of progr
 export EDITOR='program'
 export VISUAL='program'
 ```
+
+## eLibrary permission fix for ScoopEdit
+```
+psql -U postgres elibrary_db
+psql> grant all on all tables in schema public to scoop;
+```
