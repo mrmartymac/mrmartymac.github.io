@@ -50,6 +50,11 @@ The time frame for the cleanup is specified in the following file with the **XML
 
 # Database configuration
 
+## Drop the current DB
+```
+dropdb -U postgres elibrary_db
+```
+
 ## Create databse
 Open PSQL
 ```
