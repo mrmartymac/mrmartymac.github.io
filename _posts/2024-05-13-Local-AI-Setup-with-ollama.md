@@ -8,7 +8,7 @@ author: mm
 
 ## Resources
 
-[ollam](https://ollama.com/)  
+[ollama](https://ollama.com/)  
 [YouTube on setup](https://www.youtube.com/watch?v=WxYC9-hBM_g&t=631s)  
 [AI Models on huggingface.co](https://huggingface.co)  
 [Models that run with ollama](https://ollama.com/library)  
