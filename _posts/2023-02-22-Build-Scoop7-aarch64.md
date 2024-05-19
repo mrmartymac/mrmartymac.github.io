@@ -10,7 +10,7 @@ Instructions on building Scoop on the Parallels hosted AlmaLinux server which is
 ## Creating initial clone 
 Create the directory  
 ```
-/u/SCOOP/scoop_development/scoop
+/u/SCOOP/scoop_development
 ```
 Generate the key for SSH to be added to github.com - **NOTE** Use the default and do not rename the file. Take note of the ID.numeric name.  
 ```
@@ -28,7 +28,7 @@ Copy the string so that you can paste it in to gethub.com.
 [https://github.com/settings/keys](https://github.com/settings/keys)  
 
 ```
-cd /u/SCOOP/scoop_development/scoop
+cd /u/SCOOP/scoop_development
 git clone git@github.com:newspapersystems/scoop.git
 ```
 
