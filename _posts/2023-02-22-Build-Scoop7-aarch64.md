@@ -24,7 +24,7 @@ Run the less command on the key `id_rsa.pub` (if you used the suggested name) to
 ```
 less ~/.ssh/<keyname>.pub
 ```
-Copy the string so that you can paste it in to gethub.com.  
+Copy the string so that you can paste it into gethub.com.  
 [https://github.com/settings/keys](https://github.com/settings/keys)  
 
 ```
