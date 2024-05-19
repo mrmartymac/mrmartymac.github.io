@@ -14,11 +14,15 @@ Create the directory
 ```
 Generate the key for SSH to be added to github.com - **NOTE** Use the default and do not rename the file. Take note of the ID.numeric name.  
 ```
+cd /home/<username>/.ssh
 ssh-keygen -t ed25519 -C "marty@newspapersystems.com"
 ```
-Run the less command on the key to copy and paste into github.com  
+Provide a filename for the first request, suggested `id_rsa`.  Press enter twice for the passphrase.  
+
+Run the less command on the key `id_rsa.pub` (if you used the suggested name) to copy and paste into github.com.  The key will start with `ssh-ed25519`
+
 ```
-less ~/.ssh/<keyname>
+less ~/.ssh/<keyname>.pub
 ```
 Copy the string so that you can paste it in to gethub.com.  
 [https://github.com/settings/keys](https://github.com/settings/keys)  
