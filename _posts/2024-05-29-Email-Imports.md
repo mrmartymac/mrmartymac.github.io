@@ -1,6 +1,6 @@
 ---
 title: Configuring email import for Scoop
-date: 2024-05-29 09:40:14 -400
+date: 2024-05-29 08:40:14 -400
 categories: [Cheatsheet, email]
 tags: [gmail, email, import] # TAG names should always be lowercase
 author: mm
