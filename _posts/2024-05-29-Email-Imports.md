@@ -1,3 +1,4 @@
+---
 title: Configuring email import for Scoop
 date: 2024-05-29 09:40:14 -400
 categories: [Cheatsheet, email]
