@@ -216,6 +216,11 @@ sudo su - <username>
 journalctl -fxu ScoopDaemon
 ```
 
+# Journalctl for date span
+```
+journalctl --since "2024-06-05 23:58:00" --until "2024-06-06 00:05:00"
+```
+
 # Misc
 List all installed packages and grep for one
 rpm -qa | grep php
