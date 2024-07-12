@@ -1,8 +1,8 @@
 ---
 title: Google Analytics
-date: 2023-02-20 15:32:13 -500
+date: 2024-07-12 10:00:00 -400
 categories: [Cheatsheet, Google Analytics]
-tags: [google analytics, ga] # TAG names should always be lowercase
+tags: [google, analytics, ga] # TAG names should always be lowercase
 author: mm
 ---
 # Setting up Google Analytics in WebEdit and eLibrary
