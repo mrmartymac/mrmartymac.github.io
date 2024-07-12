@@ -43,7 +43,6 @@ In the <head> section of index.php locate the `Content-Security-Policy` to make 
 #### Example before
 ```js
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
-with
 ```
 #### Modified Example
 ```js
