@@ -10,23 +10,23 @@ author: mm
 ## To enter Postgres type
 
 ```bash
-`psql -U postgres`
+psql -U postgres
 ```
 
-To list databases
-`\l`
+To list databases  
+```\l```
 
-Connect to a database
-`\c <dbName>`
+Connect to a database  
+```\c <dbName>```
 
-List tables
-`\dt`
+List tables  
+```\dt```
 
-List tables and size
-`\dt+`
+List tables and size  
+```\dt+```
 
-List columns
-`\d+ <table-name>`
+List columns  
+```\d+ <table-name>```
 
 ## Export query results to CSV
 
