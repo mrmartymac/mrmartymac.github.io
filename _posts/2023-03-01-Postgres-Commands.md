@@ -14,19 +14,29 @@ psql -U postgres
 ```
 
 To list databases  
-```\l```
+```bash
+\l
+```
 
 Connect to a database  
-```\c <dbName>```
+```bash
+\c <dbName>
+```
 
 List tables  
-```\dt```
+```bash
+\dt
+```
 
 List tables and size  
-```\dt+```
+```bash
+\dt+
+```
 
 List columns  
-```\d+ <table-name>```
+```bash
+\d+ <table-name>
+```
 
 ## Export query results to CSV
 
