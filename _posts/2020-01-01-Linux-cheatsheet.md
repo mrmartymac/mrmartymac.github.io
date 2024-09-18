@@ -197,6 +197,13 @@ find . -maxdepth 1 -type f -mtime +15 -exec mv {} <destPath> \;
 ```bash
 find . -type f -name '*.json' -delete
 ```
+
+## Remove files older than some number of days
+```bash
+find . -mtime +60 -exec rm -f {} +
+```
+
+
 # Network commands
 
 Checking for ports being listened to
