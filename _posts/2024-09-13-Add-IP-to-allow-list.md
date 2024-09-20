@@ -18,8 +18,10 @@ firewall-cmd --list-all
 ```
 
 Command to add an IP address to a given service. In this case the example is using the service named `ssh-custom`. This could vary from site to site and there may be a variety of rules for different services like SSH, FTP, etc.  
+
 Replace `<IP-Address-to-add>` with the IP address you are adding. if the IP address is a range you can define it with the CIDR notation. For example the CIDR notation for a range from 1.1.1.0 - 1.1.1.3 would be 1.1.1.0/30.
-[CIDR Calculator](https://mxtoolbox.com/subnetcalculator.aspx)
+[CIDR Calculator](https://mxtoolbox.com/subnetcalculator.aspx)  
+
 The value afer `service name=` may vary. Ensure the service name is correct. You can find the service names when you run the `firewall-cmd --list-all` command.  
 ```bash
 firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="<IP-Address-to-add>" service name="ssh-custom" accept'
