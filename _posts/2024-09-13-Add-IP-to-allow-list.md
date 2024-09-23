@@ -7,11 +7,6 @@ author: mm
 ---
 The following steps show how to add/remove IP addresses to the Allowed List for connections.
 
-Change directory to
-```bash
-cd /etc/firewalld/services
-```
-
 ## List the IPs currently configured in the firewall  
 Take note of the **service names** in use.
 ```bash
@@ -46,4 +41,8 @@ firewall-cmd --permanent --zone=public --add-service=ftp (port 21)
 Adding port ranges
 ```bash
 firewall-cmd --permanent --add-port=10090-10100/tcp
+```
+Configuration file location
+```bash
+cd /etc/firewalld/services
 ```
