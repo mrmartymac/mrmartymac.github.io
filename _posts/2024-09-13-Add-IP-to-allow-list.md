@@ -12,33 +12,38 @@ Change directory to
 cd /etc/firewalld/services
 ```
 
-Command to list the IPs currently configured in `firewalld`
+## List the IPs currently configured in the firewall  
+Take note of the **service names** in use.
 ```bash
 firewall-cmd --list-all
 ```
 
-Command to add an IP address to a given service. In this case the example is using the service named `ssh-custom`. This could vary from site to site and there may be a variety of rules for different services like SSH, FTP, etc.  
+## Adding IP Addresses
+
+IP addresses are added to a given service. In this case the example is using the service named `ssh-custom`. This could vary from site to site and there may be a variety of rules for different services like SSH, FTP, etc.  
 
 Replace `<IP-Address-to-add>` with the IP address you are adding. if the IP address is a range you can define it with the CIDR notation. For example the CIDR notation for a range from 1.1.1.0 - 1.1.1.3 would be 1.1.1.0/30.
-[CIDR Calculator](https://mxtoolbox.com/subnetcalculator.aspx)  
+
+> Here is a helpful [CIDR Calculator](https://mxtoolbox.com/subnetcalculator.aspx)  
+{: .prompt-tip }
 
 The value afer `service name=` may vary. Ensure the service name is correct. You can find the service names when you run the `firewall-cmd --list-all` command.  
 ```bash
 firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="<IP-Address-to-add>" service name="ssh-custom" accept'
 ```
 
-After updating the rules, the service has to be reloaded for the changes to take effect.
+## Reloading the firewall rules after changes  
+You change will not take effect until you reload the firewall rules.  
 ```bash
 firewall-cmd --reload
 ```
 
-Various other commands noted below.  
+## Misc commands
+Adding a service name
 ```bash
 firewall-cmd --permanent --zone=public --add-service=ftp (port 21)
 ```
+Adding port ranges
 ```bash
 firewall-cmd --permanent --add-port=10090-10100/tcp
-```
-```bash
-firewall-cmd --reload
 ```
