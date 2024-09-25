@@ -9,10 +9,10 @@ Create the .htpasswd file along with a new user and password
 ```bash
 sudo htpasswd -cb /etc/httpd/.htpasswd <user> <pass>
 ```
--c is the option to create a new file
--b says to use the password provided
-If you exclude this, you will be prompted for the password at the command line
-Replace <user> with the user you want to use
+-c is the option to create a new file  
+-b says to use the password provided  
+If you exclude this, you will be prompted for the password at the command line  
+Replace <user> with the user you want to use  
 Replace <pass> with the password you want to use  
 
 Allow apache to read the .htpasswd file
@@ -20,9 +20,9 @@ Allow apache to read the .htpasswd file
 sudo chmod 664 /etc/httpd/.htpasswd
 ```  
 
-Create the .htaccess file in the directory you want
-For example, for PageTrack, we'll create it at /u/srv/pagetrack/.htaccess
-It should look like the following:
+Create the .htaccess file in the directory you want  
+For example, for PageTrack, we'll create it at /u/srv/pagetrack/.htaccess  
+It should look like the following:  
 ```
 AuthType Basic
 AuthName "Restricted Location"
