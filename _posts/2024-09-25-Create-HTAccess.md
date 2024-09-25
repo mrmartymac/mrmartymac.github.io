@@ -1,5 +1,5 @@
 ---
-title: How to create .htaccess protection to secure web directories:
+title: How to create .htaccess protection to secure web directories
 date: 2024-09-25 11:04:26 -400
 categories: [Cheatsheet, Apache]
 tags: [security, htaccess] # TAG names should always be lowercase
