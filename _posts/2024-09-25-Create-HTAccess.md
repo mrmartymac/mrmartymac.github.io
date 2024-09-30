@@ -21,7 +21,7 @@ sudo chmod 664 /etc/httpd/.htpasswd
 ```  
 
 Create the .htaccess file in the directory you want  
-For example, for PageTrack, we'll create it at /u/srv/pagetrack/.htaccess  
+For example, for PageTrack, we'll create it at `/u/srv/pagetrack/Products/.htaccess`
 It should look like the following:  
 ```
 AuthType Basic

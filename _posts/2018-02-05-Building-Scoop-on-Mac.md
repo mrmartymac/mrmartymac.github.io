@@ -1,7 +1,7 @@
 ---
 title: Building Scoop on Mac
 date: 2023-08-23 07:45:10 -400
-categories: [Cheatsheet, Scoop]
+categories: [Documentation, Builds]
 tags: [build, qt, sign] # TAG names should always be lowercase
 author: mm
 ---
