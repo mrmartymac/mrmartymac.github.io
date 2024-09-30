@@ -1,5 +1,5 @@
 ---
-title: How to build Scoop for aarch64 on Alma9
+title: Building Scoop for aarch64 on Alma9
 date: 2023-02-22 15:40:23 -500
 categories: [Documentation, Builds]
 tags: [server, build, daemon] # TAG names should always be lowercase
