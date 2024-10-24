@@ -9,7 +9,7 @@ author: mm
 Creating SCS admin User
 ```bash
 groupadd scs
-useradd -g scs -c "scs admin user" -s 	bin	bash -d 	u	users_scs	scsadmin -u 7000 -m scsadmin
+useradd -g scs -c "scs admin user" -s /bin/bash -d /u/users_scs/scsadmin -u 7000 -m scsadmin
 usermod -aG wheel scsadmin
 passwd scsadmin
 ```
