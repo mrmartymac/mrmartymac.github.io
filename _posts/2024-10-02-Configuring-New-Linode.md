@@ -148,7 +148,15 @@ crontab -e
 
 ## CAS Framework install
 
-Install `httpd`
+Become the root user
+```bash
+cd /u/updates
+```
+Download step1.sh from the ethan directory on the SCS FTP
+```bash
+chmod +x step1.sh
+./step1.sh
+```
 
 ## Change SSH port
 

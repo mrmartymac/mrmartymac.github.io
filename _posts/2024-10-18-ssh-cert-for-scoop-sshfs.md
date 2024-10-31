@@ -25,22 +25,13 @@ You have now created the key. The contents of this key needs to be added to a fi
 Add the key to the authorized_keys file by following these steps.
 ```bash
 cd ~scoop/.ssh
-cat id_ed25519.pub
+cat id_ed25519.pub > authorized_keys
 ```
-
-Highlight and copy the resulting line(s) of text to be pasted into the `authorized_keys` file
-```bash
-nano authorized_keys
-```
-
-Paste the result from the above file into a new line in `authorized_keys`, save and close `authorized_keys`
-
 Set permissions on the `authorized_keys` file
 ```bash
 chmod 600 authorized_keys
 chown scoop:scoop authorized_keys
 ```
-
 Copy the file path to id_ed25519 and paste it in DatabaseManager
 ```bash
 /home/scoop/.ssh/id_ed25519
