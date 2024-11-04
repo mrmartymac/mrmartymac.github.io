@@ -172,6 +172,12 @@ wget --no-check-certificate 'https://thePublicShareFromGoogleDrive' -O Destinati
 
 # File operations
 
+## Using scp to copy
+```bash
+scp -P <ssh port> <file> <user>@<ip address>:<destination path>
+```
+
+
 ## Find large directories
 
 ```bash
