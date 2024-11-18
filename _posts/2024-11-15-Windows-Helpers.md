@@ -11,5 +11,5 @@ author: mm
 2. Mount the ISO
 3. In Server Manager Add the Feature for .NET 3.5 and specify the location by capturing the path to the mounted ISO, `\Sources\sxs` folder.
 
-![Capture Path](../images/windows-helpers/NET35-1.png)
-![Server Manager](../images/windows-helpers/NET35-1.png) 
+![Capture Path](/images/windows-helpers/NET35-1.png)
+![Server Manager](/images/windows-helpers/NET35-1.png) 
