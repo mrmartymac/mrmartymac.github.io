@@ -17,7 +17,14 @@ cd eLibrary-<version>
 ./install_elibrary.sh
 ```
 
-Configuration file location
+## AlmaLinux9 Note
+When trying to run for the first time I have found a missing pre-requisite of `pydfium2` to correct it follow these steps.
+
+```bash
+sudo dnf install python3 python3-pip
+pip3 install pypdfium2
+```
+## Configuration file location
 ```bash
 /etc/xdg/SCS/eLibrary.Importer.ini
 ```
