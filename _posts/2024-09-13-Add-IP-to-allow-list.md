@@ -33,6 +33,10 @@ You change will not take effect until you reload the firewall rules.
 firewall-cmd --reload
 ```
 
+## Removing an entry
+```
+firewall-cmd --permanent --remove-rich-rule='rule family="ipv4" source address="<IP-Address-To-Remove>" service name="ssh-custom" accept'
+```
 ## Misc commands
 Adding a service name
 ```bash
