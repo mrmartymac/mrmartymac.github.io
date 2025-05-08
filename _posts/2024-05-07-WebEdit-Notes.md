@@ -14,5 +14,5 @@ cd /usr/share/webedit
 The link command will allow the older version to server as the version that matches the current server version number.
 
 ```shell
-ln -l <oldVersion> <newVersion>
+ln -s <oldVersion> <newVersion>
 ```
