@@ -18,6 +18,15 @@ Disable spectre mitigation
 grubby --args=’nospectre_v2 notpi’ --update-kernel=ALL
 ```
 
+## Add scsadmin User
+
+```bash
+groupadd scs
+useradd -g scs -c "scs admin user" -s /bin/bash -d /u/users_scs/scsadmin -u 7000 -m scsadmin
+usermod -aG wheel scsadmin
+passwd scsadmin
+```
+
 ## Configuring the Firewall
 
 Add apache:
@@ -157,6 +166,7 @@ Download step1.sh from the ethan directory on the SCS FTP
 chmod +x step1.sh
 ./step1.sh
 ```
+
 
 ## Change SSH port
 

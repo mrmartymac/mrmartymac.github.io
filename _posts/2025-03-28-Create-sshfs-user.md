@@ -30,7 +30,7 @@ ssh-keygen -t ed25519 -b 4096
 
 Echo the new key in to Autohorized Keys and change the permissions.
 ```bash
-echo ed25519.pub > ~/.ssh/authorized_keys
+echo id_ed25519.pub > ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ```
 Edit the contents of the private key and copy it to save for the connection app. This will be needed to create the Mac App. The example uses nano, but you may use whatever method you prefer.
@@ -42,7 +42,7 @@ It may be necessary to edit the ssh_config file to add the user to the `AllowUse
 ```bash
 nano /etc/ssh/sshd_config
 ```
-Copy and paste the contents of the ed25519 into the script.
+Copy and paste the contents of the id_ed25519 into the script.
 
 
 ./dmgbuild 
