@@ -295,3 +295,9 @@ export VISUAL='program'
 psql -U postgres elibrary_db
 psql> grant all on all tables in schema public to scoop;
 ```
+
+## Test that Windows can connect to a port
+Run the following command in Powershell
+```bash
+test-netconnection -ComputerName scoop.newspapersystems.com -Port 7267 
+```

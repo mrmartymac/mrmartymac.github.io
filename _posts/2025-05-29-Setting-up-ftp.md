@@ -5,37 +5,54 @@ categories: [Cheatsheet, FTP]
 tags: [ftp, vstp] # TAG names should always be lowercase
 author: mm
 ---
+## Adding a user
+Create the user account
+```bash
+useradd -c "User Description" -d <HomeDirectoryPath> -m -s /bin/ftponly <userName>
+```
+Set the password for the user
+```bash
+passwd <userName>
+```
+Add the user to the user_list and save.
+```bash
+nano /etc//etc/vsftpd/user_list
+```
 
-846  systemctl status ncftpd
-  848  firewall-cmd --add-service=ftp --permanent --zone=public
-  853  ln -s /usr/lib/systemd/system/vsftpd.service /etc/systemd/system/multi-user.target.wants/vsftpd.service 
-  854  ln -s /etc/systemd/system/multi-user.target.wants/vsftpd.service /usr/lib/systemd/system/vsftpd.service
-  857  systemctl restart vsftpd
-  866  more ftp-custom.xml 
-  868  more /etc/vsftpd/vsftpd.conf
-  869  nano /etc/vsftpd/vsftpd.conf
-  870  systemctl restart vsftpd
-  871  nano /etc/vsftpd/vsftpd.conf
-  877  systemctl status vsftpd
-  879  nano /etc/vsftpd/vsftpd.conf
-  880  systemctl restart vsftpd
-  881  passwd csn_ftp
-  882  cd /etc/vsftpd/
-  884  nano vsftpd.conf
-  885  systemctl restart vsftpd
-  887  cd /u/ftp/
-  899  cd /u/ftp/CSN/
-  947  clear ; ftp
- 1004  cd ftp
- 1014  nano /etc/vsftpd/vsftpd.conf
- 1015  nano /etc/vsftpd/user_list 
- 1016  history | grep csn_ftp
- 1017  useradd -c "SCS FTP" -d /u/ftp/SCS -m -s /bin/ftponly scs_ftp
- 1018  mkdir /u/ftp/SCS
- 1019  chown scs_ftp:scs /u/ftp/SCS
- 1020  passwd scs_ftp
- 1022  cd /u/ftp/
- 1033  deluser scs_ftp
- 1034  rmuser scs_ftp
- 1036  userdel -r scs_ftp
- 1043  nano /etc/vsftpd/user_list 
+
+## Raw history
+```bash
+systemctl status ncftpd
+firewall-cmd --add-service=ftp --permanent --zone=public
+ln -s /usr/lib/systemd/system/vsftpd.service /etc/systemd/system/multi-user.target.wants/vsftpd.service 
+ln -s /etc/systemd/system/multi-user.target.wants/vsftpd.service /usr/lib/systemd/system/vsftpd.service
+systemctl restart vsftpd
+more ftp-custom.xml 
+more /etc/vsftpd/vsftpd.conf
+nano /etc/vsftpd/vsftpd.conf
+systemctl restart vsftpd
+nano /etc/vsftpd/vsftpd.conf
+systemctl status vsftpd
+nano /etc/vsftpd/vsftpd.conf
+systemctl restart vsftpd
+passwd csn_ftp
+cd /etc/vsftpd/
+nano vsftpd.conf
+systemctl restart vsftpd
+cd /u/ftp/
+cd /u/ftp/CSN/
+clear ; ftp
+cd ftp
+nano /etc/vsftpd/vsftpd.conf
+nano /etc/vsftpd/user_list 
+history | grep csn_ftp
+useradd -c "SCS FTP" -d /u/ftp/SCS -m -s /bin/ftponly scs_ftp
+mkdir /u/ftp/SCS
+chown scs_ftp:scs /u/ftp/SCS
+passwd scs_ftp
+cd /u/ftp/
+deluser scs_ftp
+rmuser scs_ftp
+userdel -r scs_ftp
+nano /etc/vsftpd/user_list 
+```
