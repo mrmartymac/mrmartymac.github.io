@@ -114,10 +114,10 @@ Install mysql client the following command:
 sudo dnf install mysql
 ```
 
-Install mysql server 
+Install MariaDB server 
 
 ```
-sudo dnf install mysql-server
+sudo dnf install mariadb-server mariadb
 ```
 
 Start the database server daemon, and also enable it to start automatically at the next boot with the following commands:
