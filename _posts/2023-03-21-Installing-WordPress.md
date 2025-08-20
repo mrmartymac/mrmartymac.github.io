@@ -86,7 +86,7 @@ If everything is configured properly, you should be greeted by the default Apach
 ## Step 3: Setup LetsEncrypt SSL
 
 Please see: [How to Setup Let's Encrypt SSL Certificate]([URL](http://martins-macbook-pro.local/posts/Install-ssl-cert-httpd/))
-## Step 3: Install PHP and PHP extensions for WordPress
+## Step 4: Install PHP and PHP extensions for WordPress
 
 You can install PHP and other supporting packages using the following command:
 
@@ -109,7 +109,7 @@ Zend Engine v4.0.13, Copyright (c) Zend Technologies
 with Zend OPcache v8.0.13, Copyright (c), by Zend Technologies
 ```
 
-## Step 4: Install mysql and create a database
+## Step 5: Install mysql and create a database
 
 Install mysql client the following command:
 
@@ -183,7 +183,7 @@ FLUSH PRIVILEGES;
 EXIT
 ```
 
-## Step 5: Download WordPress on AlmaLinux 9
+## Step 6: Download WordPress on AlmaLinux 9
 
 We will now download the latest version of WordPress from the [WordPress Official site](https://wordpress.org/download/).
 
@@ -206,7 +206,7 @@ sudo chown -R apache:apache /var/www/html/wordpress/
 sudo chcon -t httpd_sys_rw_content_t /var/www/html/wordpress -R
 ```
 
-## Step 6: Configure Apache Web Server for WordPress
+## Step 7: Configure Apache Web Server for WordPress
 
 Navigate to `/etc/httpd/conf.d` directory and run the following command to create a configuration file for your installation:
 
@@ -245,7 +245,7 @@ Restart the Apache web server.
 sudo systemctl restart httpd
 ```
 
-## Step 7: Access WordPress Web Installer
+## Step 8: Access WordPress Web Installer
 
 Open your browser type your domain e.g `http://your-domain.com`  and click on the **`Let's go!`** button to complete the required steps:
 
