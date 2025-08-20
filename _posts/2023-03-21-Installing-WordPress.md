@@ -85,7 +85,7 @@ If everything is configured properly, you should be greeted by the default Apach
 
 ## Step 3: Setup LetsEncrypt SSL
 
-Please see: [How to Setup Let's Encrypt SSL Certificate]([URL](http://martins-macbook-pro.local/posts/Install-ssl-cert-httpd/))
+Please see: [How to Setup Let's Encrypt SSL Certificate](https://mrmartymac.github.io/posts/Install-ssl-cert-httpd/)
 ## Step 4: Install PHP and PHP extensions for WordPress
 
 You can install PHP and other supporting packages using the following command:
