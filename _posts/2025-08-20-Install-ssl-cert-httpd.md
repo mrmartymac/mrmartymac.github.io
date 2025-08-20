@@ -6,19 +6,13 @@ tags: [ssl, certificate, cert, security] # TAG names should always be lowercase
 author: mm
 ---
 
-
-
-## CrownCloud Wiki - How To Setup LetsEncrypt SSL Certificate With Apache On Alma Linux 10
 [How to Setup Let's Encrypt SSL Certificate with Apache on AlmaLinux 10](#How+to+Setup+Let%27s+Encrypt+SSL+Certificate+with+Apache+on+AlmaLinux+10)
 
 * * *
 
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 Let's Encrypt is a non-profit certificate authority run by the Internet Security Research Group that provides free SSL/TLS certificates. In this guide, we will install and configure Let's Encrypt SSL on AlmaLinux 10.
 
-#### [Pre-requisites](#Pre-requisites)
+## [Pre-requisites](#Pre-requisites)
 
 * * *
 
@@ -26,7 +20,7 @@ Let's Encrypt is a non-profit certificate authority run by the Internet Security
 *   `Apache` Web server installed and running.
 *   You may refer to our [LAMP Stack Installation on AlmaLinux 10](https://wiki.crowncloud.net/index.php?How_to_Install_LAMP_Stack_on_AlmaLinux_10) if it's not already installed.
 
-#### [Install EPEL Repository and mod\_ssl](#Install+EPEL+Repository+and+mod_ssl)
+## [Install EPEL Repository and mod\_ssl](#Install+EPEL+Repository+and+mod_ssl)
 
 * * *
 
@@ -35,7 +29,7 @@ dnf install epel-release mod_ssl -y
 ```
 
 
-#### [Install Certbot](#Install+Certbot)
+## [Install Certbot](#Install+Certbot)
 
 * * *
 
@@ -44,7 +38,7 @@ dnf install certbot python3-certbot-apache -y
 ```
 
 
-#### [Configure Apache Virtual Host](#Configure+Apache+Virtual+Host)
+## [Configure Apache Virtual Host](#Configure+Apache+Virtual+Host)
 
 * * *
 
@@ -78,7 +72,7 @@ Add the following configuration:
 
 Save and exit.
 
-#### [Restart Apache and Check Status](#Restart+Apache+and+Check+Status)
+## [Restart Apache and Check Status](#Restart+Apache+and+Check+Status)
 
 * * *
 
@@ -88,7 +82,7 @@ systemctl status httpd
 ```
 
 
-#### [Configure Firewall](#Configure+Firewall)
+## [Configure Firewall](#Configure+Firewall)
 
 * * *
 
@@ -99,7 +93,7 @@ firewall-cmd --reload
 ```
 
 
-#### [Generate Let's Encrypt SSL Certificate](#Generate+Let%27s+Encrypt+SSL+Certificate)
+## [Generate Let's Encrypt SSL Certificate](#Generate+Let%27s+Encrypt+SSL+Certificate)
 
 * * *
 
@@ -127,7 +121,7 @@ Key is saved at:         /etc/letsencrypt/live/blog.domainhere.info/privkey.pem
 
 Certbot will also configure your Apache SSL automatically.
 
-#### [Verify SSL Installation](#Verify+SSL+Installation)
+## [Verify SSL Installation](#Verify+SSL+Installation)
 
 * * *
 
