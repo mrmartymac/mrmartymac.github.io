@@ -41,6 +41,9 @@ git reset --hard origin	master
 ./Installer/build_scoop.sh
 ```
 
+> If the `reset` command fails use `git pull origin master`
+{: .prompt-info }
+
 ## Running actual update
 ```bash
 cd Installer/build/dist
