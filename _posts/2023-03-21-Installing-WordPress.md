@@ -83,6 +83,9 @@ If everything is configured properly, you should be greeted by the default Apach
 
 ![AlmaLinux 9 Test Page](https://i0.wp.com/www.linuxtuto.com/wp-content/uploads/2022/05/AlmaLinux_Test_Page.jpg?resize=897%2C427&ssl=1)
 
+## Step 3: Setup LetsEncrypt SSL
+
+Please see: [How to Setup Let's Encrypt SSL Certificate]([URL](http://martins-macbook-pro.local/posts/Install-ssl-cert-httpd/))
 ## Step 3: Install PHP and PHP extensions for WordPress
 
 You can install PHP and other supporting packages using the following command:
