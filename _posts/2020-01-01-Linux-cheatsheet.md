@@ -177,6 +177,14 @@ wget --no-check-certificate 'https://thePublicShareFromGoogleDrive' -O Destinati
 scp -P <ssh port> <file> <user>@<ip address>:<destination path>
 ```
 
+## Using rsync to copy and update 
+The `rsync` command below is configured to copy TO a remote server. The [source] is on the left and the [destination] is on the right. The destination has the destination name or IP address prepended to the remote path. The command can be used to copy TO ofr FROM a server. The username can be prepended to the destination to override authentication.
+
+> The trailing slash is important. Using it specifies an absolute path and to place the file and directories being copied exactly there. No replication of the source path with happen.
+{: .prompt-tip }
+```bash
+rsync -avvh /u/scoop/ <destination_ip_or_name>:/u/scoop/
+```
 
 ## Find large directories
 
