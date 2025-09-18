@@ -10,6 +10,11 @@ Dump the database
 ```
 pg_dump -U postgres scoop_db > Scoop.dump
 ```
+psql-16 version
+```
+/usr/pgsql-16/bin/pg_dump -U postgres scoop_db > Scoop.dump
+```
+
 Transfer the dump
 
 Stop Scoop
