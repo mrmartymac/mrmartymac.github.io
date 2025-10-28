@@ -30,6 +30,7 @@ ssh-keygen -t ed25519 -b 4096
 
 Echo the new key in to Autohorized Keys and change the permissions.
 ```bash
+cd .ssh
 echo id_ed25519.pub > ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ```
