@@ -1,5 +1,5 @@
 ---
-title: Rebuild SCS/Track lucene indexes
+title: Rebuild SCS/Track Lucene indexes
 date: 2025-11-12 14:16:25 -400
 categories: [Cheatsheets, SCS/Track]
 tags: [track, indexes, lucene] # TAG names should always be lowercase
