@@ -1,6 +1,6 @@
 ---
 title: Creating SSH-FS Keys for Scoop user
-date: 2025-10-28 08:3732:33 -400
+date: 2025-10-28 08:37:33 -400
 categories: [Cheatsheet, SMB]
 tags: [smb, ssh, sshfs, keygen. keys] # TAG names should always be lowercase
 author: mm
