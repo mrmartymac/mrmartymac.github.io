@@ -1,6 +1,6 @@
 ---
 title: Notes about install_scs.sh mirror setup
-date: 2025-11-18 08:45:58 -400
+date: 2025-11-18 07:45:58 -400
 categories: [Cheatsheets, Mirror]
 tags: [mirror] # TAG names should always be lowercase
 author: mm
