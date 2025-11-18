@@ -35,8 +35,7 @@ Look in mirror.conf to see if this method is used.
 
 ## Checking the current or previous role
 ```
-cd /u/ha/log
-cat mirror_role.log 
+cat /u/ha/log/mirror_role.log 
 ```
 
 Make the server Primary
