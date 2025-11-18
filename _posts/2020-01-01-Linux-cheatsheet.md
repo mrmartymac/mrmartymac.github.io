@@ -280,6 +280,14 @@ usermod -a -G scoop scoopadmin
 ```bash
 usermod -aG wheel scoopadmin
 ```
+To enable passwordless elevation to sudo do the following
+```
+nano /etc/sudoers.d/<UserName>
+```
+Add the following to the file
+```
+<UserName> ALL=(ALL) NOPASSWD:ALL
+```
 
 ## Enabling PHP
 ```bash
