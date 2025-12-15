@@ -186,6 +186,8 @@ The `rsync` command below is configured to copy TO a remote server. The [source]
 rsync -avvh /u/scoop/ <destination_ip_or_name>:/u/scoop/
 ```
 
+# Find
+
 ## Find large directories
 
 ```bash
@@ -201,6 +203,18 @@ find /u/scoop/images -type f -name *.docx -size +6M | wc -l
 ```bash
 sudo find /u/scoop/images/ -type f -perm 644 -exec chmod 666 {} \;
 ```
+
+## Find directories missing a file by name
+This assumes the current directory and does not search deeper than one level.
+```bash
+for d in */; do [ ! -f "$d/<FileName>" ] && echo "${d%/}"; done
+```
+This version provides some more robost parameters
+```bash
+find . -mindepth 1 -maxdepth 1 -type d ! -exec test -f "{}/<FileName>" \; -print
+```
+
+
 
 ## Move files based on time
 ```bash
