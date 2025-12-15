@@ -91,5 +91,11 @@ systemctl start murbsd
 murbs fullsync
 ```
 
+## Checking Logs
+To check the nightly log look at copy_fs.log
+```bash
+more /u/ha/log/copy_fs.log
+```
+
 ## NOTE about journaltctl error about 10 files  
 It seems this is a red herring and is not a problem.  Murbs is detecting the presence of multiple past postgresql log dumps and using this as the trigger to clean them up
