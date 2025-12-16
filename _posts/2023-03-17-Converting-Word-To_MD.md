@@ -1,7 +1,7 @@
 ---
 title: Converting Word document to Markdown using pandoc 
 date: 2023-03-17 14:31:06 -400
-categories: [Cheatsheet, Jekyl, Word]
+categories: [Cheatsheets, Jekyl, Word]
 tags: [convert, markdown] # TAG names should always be lowercase
 author: mm
 ---

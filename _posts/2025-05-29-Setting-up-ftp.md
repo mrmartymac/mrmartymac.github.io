@@ -1,7 +1,7 @@
 ---
 title: Setting up VSFTP
 date: 2025-05-29 07:21:50 -400
-categories: [Cheatsheet, FTP]
+categories: [Cheatsheets, FTP]
 tags: [ftp, vstp] # TAG names should always be lowercase
 author: mm
 ---

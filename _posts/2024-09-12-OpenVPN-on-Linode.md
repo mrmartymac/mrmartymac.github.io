@@ -1,7 +1,7 @@
 ---
 title: OpenVPN on Linode
 date: 2024-09-12 12:52:37 -400
-categories: [Cheatsheet, Linode]
+categories: [Cheatsheets, Linode]
 tags: [linode, openvpn] # TAG names should always be lowercase
 author: mm
 ---

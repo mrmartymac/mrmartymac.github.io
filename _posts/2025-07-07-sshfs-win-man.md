@@ -1,7 +1,7 @@
 ---
 title: Setting up SSH-Win-Manager
 date: 2025-07-08 14:10:42 -400
-categories: [Cheatsheet, SSHFS-Win-Manager]
+categories: [Cheatsheets, SSHFS-Win-Manager]
 tags: [ssh, sshfs] # TAG names should always be lowercase
 author: mm
 ---

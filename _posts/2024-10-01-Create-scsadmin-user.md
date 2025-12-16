@@ -1,7 +1,7 @@
 ---
 title: Creating SCS Admin user
 date: 2024-10-01 15:33:46 -400
-categories: [Cheatsheet, Linux]
+categories: [Cheatsheets, Linux]
 tags: [user, admin] # TAG names should always be lowercase
 author: mm
 ---

@@ -1,7 +1,7 @@
 ---
 title: Linode CLI
 date: 2024-09-12 08:10:03 -400
-categories: [Cheatsheet, Linode]
+categories: [Cheatsheets, Linode]
 tags: [linode, cli] # TAG names should always be lowercase
 author: mm
 ---

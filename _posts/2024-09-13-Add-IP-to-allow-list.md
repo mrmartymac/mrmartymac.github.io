@@ -1,7 +1,7 @@
 ---
 title: Add/Remove IP to allowed list
 date: 2024-09-13 11:20:36 -400
-categories: [Cheatsheet, Networking]
+categories: [Cheatsheets, Networking]
 tags: [allow, allowlist, whitelist, firewall, firewalld] # TAG names should always be lowercase
 author: mm
 ---

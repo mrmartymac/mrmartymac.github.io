@@ -1,7 +1,7 @@
 ---
 title: WebEdit Notes
 date: 2024-05-07 00:01:15 -400
-categories: [Cheatsheet, WebEdit]
+categories: [Cheatsheets, WebEdit]
 tags: [link, symbolic] # TAG names should always be lowercase
 author: mm
 ---

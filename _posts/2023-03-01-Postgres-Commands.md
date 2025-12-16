@@ -1,7 +1,7 @@
 ---
 title: Postgres Commands
 date: 2023-03-01 13:47:01 -500
-categories: [Cheatsheet, PostgreSQL]
+categories: [Cheatsheets, PostgreSQL]
 tags: [postgres, psql] # TAG names should always be lowercase
 author: mm
 ---

@@ -1,7 +1,7 @@
 ---
 title: Linux Cheatsheet 
 date: 2023-02-20 10:39:07 -500
-categories: [Cheatsheet, Linux]
+categories: [Cheatsheets, Linux]
 tags: [linux] # TAG names should always be lowercase
 author: mm
 ---

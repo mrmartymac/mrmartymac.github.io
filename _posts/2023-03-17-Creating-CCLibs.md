@@ -1,7 +1,7 @@
 ---
 title: Creating CCLibs
 date: 2023-03-17 14:36:30 -400
-categories: [Cheatsheet, Adobe, InDesign]
+categories: [Cheatsheets, Adobe, InDesign]
 tags: [indesign, cclibs] # TAG names should always be lowercase
 author: mm
 ---

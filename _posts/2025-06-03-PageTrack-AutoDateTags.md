@@ -1,7 +1,7 @@
 ---
 title: PageTrack Auto Date Tags
 date: 2025-06-03 08:05:30 -400
-categories: [Cheatsheet, PageTrack]
+categories: [Cheatsheets, PageTrack]
 tags: [date, tags] # TAG names should always be lowercase
 author: mm
 ---

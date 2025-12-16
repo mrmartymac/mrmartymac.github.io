@@ -1,7 +1,7 @@
 ---
 title: 
 date: 2023-11-07 12:01:15 -400
-categories: [Cheatsheet, SSL Certificate]
+categories: [Cheatsheets, SSL Certificate]
 tags: [ssl, certificate, httpd] # TAG names should always be lowercase
 author: mm
 ---

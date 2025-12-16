@@ -1,7 +1,7 @@
 ---
 title: Notes about Mirroring and MURBS
 date: 2023-08-10 13:55:51 -400
-categories: [Cheatsheet, Mirroring]
+categories: [Cheatsheets, Mirroring]
 tags: [mirroring, murbs] # TAG names should always be lowercase
 author: mm
 ---

@@ -1,7 +1,7 @@
 ---
 title: Query tasks using CASTS for time frame
 date: 2023-06-05 10:17:20 -400
-categories: [Cheatsheet, PostgreSQL]
+categories: [Cheatsheets, PostgreSQL]
 tags: [casts, timestamp, task log] # TAG names should always be lowercase
 author: mm
 ---

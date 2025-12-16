@@ -1,7 +1,7 @@
 ---
 title: SMB from Windows 11 or Windows Server 2025
 date: 2025-06-27 14:06:12 -400
-categories: [Cheatsheet, Windows]
+categories: [Cheatsheets, Windows]
 tags: [windows, smb] # TAG names should always be lowercase
 author: mm
 ---

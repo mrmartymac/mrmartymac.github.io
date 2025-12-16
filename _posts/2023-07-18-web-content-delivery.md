@@ -1,7 +1,7 @@
 ---
 title: Web Content Delivery
 date: 2023-07-18 15:28:58 -400
-categories: [Cheatsheet, Find]
+categories: [Cheatsheets, Find]
 tags: [grep, wcd, find] # TAG names should always be lowercase
 author: mm
 ---

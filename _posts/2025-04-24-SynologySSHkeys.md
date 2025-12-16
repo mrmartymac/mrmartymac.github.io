@@ -1,7 +1,7 @@
 ---
 title: Synology Keys (partial)
 date: 2025-04-24 07:59:34 -400
-categories: [Cheatsheet, Synology]
+categories: [Cheatsheets, Synology]
 tags: [synology, ssh, keys] # TAG names should always be lowercase
 author: mm
 ---

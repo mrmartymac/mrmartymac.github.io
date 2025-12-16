@@ -1,7 +1,7 @@
 ---
 title: Making ssh key
 date: 2024-11-20 14:48:58 -400
-categories: [Cheatsheet, Linux]
+categories: [Cheatsheets, Linux]
 tags: [ssh, key, security] # TAG names should always be lowercase
 author: mm
 ---

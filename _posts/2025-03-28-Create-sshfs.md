@@ -1,7 +1,7 @@
 ---
 title: Creating SSH-FS user
 date: 2025-03-28 10:37:33 -400
-categories: [Cheatsheet, SMB]
+categories: [Cheatsheets, SMB]
 tags: [smb, ssh, sshfs, keygen. keys] # TAG names should always be lowercase
 author: mm
 ---

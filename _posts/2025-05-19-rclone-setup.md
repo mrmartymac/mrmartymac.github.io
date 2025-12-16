@@ -1,7 +1,7 @@
 ---
 title: Working with rclone
 date: 2025-05-19 14:39:12 -400
-categories: [Cheatsheet, rclone]
+categories: [Cheatsheets, rclone]
 tags: [rclone, object, storage, proxmox, backup] # TAG names should always be lowercase
 author: mm
 ---

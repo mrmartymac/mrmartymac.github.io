@@ -1,7 +1,7 @@
 ---
 title: Fix Quarantine bit on downloaded files
 date: 2023-08-18 13:31:33 -400
-categories: [Cheatsheet, Mac]
+categories: [Cheatsheets, Mac]
 tags: [fix, quarantine, zip, downloaded] # TAG names should always be lowercase
 author: mm
 ---

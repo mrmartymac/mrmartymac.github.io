@@ -1,7 +1,7 @@
 ---
 title: Updating SSL Certificate for IIS
 date: 2023-08-25 07:52:24 -400
-categories: [Cheatsheet, Windows]
+categories: [Cheatsheets, Windows]
 tags: [iis, ssl, certificate, cert] # TAG names should always be lowercase
 author: mm
 ---

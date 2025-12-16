@@ -1,7 +1,7 @@
 ---
 title: Command to renew certificate
 date: 2023-05-08 10:43:28 -400
-categories: [Cheatsheet, Linux]
+categories: [Cheatsheets, Linux]
 tags: [certificate, renew] # TAG names should always be lowercase
 author: mm
 ---

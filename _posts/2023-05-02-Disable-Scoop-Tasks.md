@@ -1,7 +1,7 @@
 ---
 title: Diable Scoop Tasks 
 date: 2023-05-02 10:52:18 -400
-categories: [Cheatsheet, PostgreSQL]
+categories: [Cheatsheets, PostgreSQL]
 tags: [disable, update, tasks] # TAG names should always be lowercase
 author: mm
 ---

@@ -1,7 +1,7 @@
 ---
 title: How to configure logrotate
 date: 2023-03-08 15:12:45 -500
-categories: [Cheatsheet, Linux, Logs]
+categories: [Cheatsheets, Linux, Logs]
 tags: [logrotate, maintenance] # TAG names should always be lowercase
 author: mm
 ---

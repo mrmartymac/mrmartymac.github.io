@@ -1,7 +1,7 @@
 ---
 title: How to move PostgreSQL data 
 date: 2023-03-24 08:18:26 -500
-categories: [Cheatsheet, PostgreSQL]
+categories: [Cheatsheets, PostgreSQL]
 tags: [potgres, postgresql, pgsql, synlink] # TAG names should always be lowercase
 author: mm
 ---

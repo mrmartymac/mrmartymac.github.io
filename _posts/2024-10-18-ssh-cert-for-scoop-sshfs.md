@@ -1,7 +1,7 @@
 ---
 title: Create certificate for Scoop SSHFS
 date: 2024-10-18 13:12:33 -400
-categories: [Cheatsheet, Scoop]
+categories: [Cheatsheets, Scoop]
 tags: [sshfs, certificate] # TAG names should always be lowercase
 author: mm
 ---

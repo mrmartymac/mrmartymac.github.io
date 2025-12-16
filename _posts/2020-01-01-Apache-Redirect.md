@@ -1,7 +1,7 @@
 ---
 title: Configure Apache Redirect
 date: 2023-02-20 15:32:13 -500
-categories: [Cheatsheet, Apache]
+categories: [Cheatsheets, Apache]
 tags: [apache, web] # TAG names should always be lowercase
 author: mm
 ---

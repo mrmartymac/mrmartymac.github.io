@@ -1,7 +1,7 @@
 ---
 title: PageTrack folders and files
 date: 2023-03-28 14:51:23 -400
-categories: [Cheatsheet, PageTrack]
+categories: [Cheatsheets, PageTrack]
 tags: [pagetrack, locations] # TAG names should always be lowercase
 author: mm
 ---

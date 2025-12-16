@@ -1,7 +1,7 @@
 ---
 title: IP Address Filtering for Apache
 date: 2023-05-05 13:10:03 -400
-categories: [Cheatsheet, Apache]
+categories: [Cheatsheets, Apache]
 tags: [apache, httpd, filter, whitelist, virtualhost] # TAG names should always be lowercase
 author: mm
 ---
