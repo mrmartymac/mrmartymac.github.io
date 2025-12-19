@@ -331,3 +331,24 @@ Run the following command in Powershell
 ```bash
 test-netconnection -ComputerName scoop.newspapersystems.com -Port 7267 
 ```
+
+## Changing servername or hostname
+1. Check current hostname
+```bash
+hostnamectl
+```
+2. Set the new hostname (requires sudo)
+```bash
+sudo hostnamectl set-hostname my-new-server-name
+```
+
+3. Edit /etc/hosts (important!)
+Find the line with 127.0.0.1 and change the old hostname to the new one
+```bash
+sudo nano /etc/hosts
+```
+
+4. Verify (may need to restart terminal/reboot)
+```bash
+hostnamectl
+```
