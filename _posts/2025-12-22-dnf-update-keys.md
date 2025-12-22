@@ -1,7 +1,7 @@
 ---
 title: DNF Update - Key change issue
 date: 2025-12-22 08:24:21 -400
-categories: [Cheatsheet, Updates]
+categories: [Cheatsheets, Updates]
 tags: [dnf, key, mismatch] # TAG names should always be lowercase
 author: mm
 ---
