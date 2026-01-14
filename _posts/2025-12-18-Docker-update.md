@@ -87,24 +87,12 @@ docker stop $(docker ps -q)
 cd /u/moai/novnc
 ```
   
-
+## Test that the new version is installed
+```bash
+docker exec -it $(docker run -dit --network=host novnc) /bin/bash
 ```
-docker run -dit --network=host novnc
-```
-  
-response example: 
-```
-958722c31c7bc7f0bdc558d87e15ef4aa543ad63bd25ca5ef1843f7eb52d0f54
-```
-  
-
-```
-docker exec -it 958722c31c7bc7f0bdc558d87e15ef4aa543ad63bd25ca5ef1843f7eb52d0f54 /bin/bash
-```
-  
-
-```
+```bash
 cat /etc/redhat-release
 ```
-  
-CentOS Linux release 7.9.2009 (Core)            
+
+We are looking for `AlmaLinux release 9.x`
