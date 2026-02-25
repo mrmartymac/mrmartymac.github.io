@@ -94,5 +94,10 @@ docker exec -it $(docker run -dit --network=host novnc) /bin/bash
 ```bash
 cat /etc/redhat-release
 ```
-
 We are looking for `AlmaLinux release 9.x`
+
+## Firewall modification
+```bash
+firewall-cmd --permanent --remove-port=5901-59xx/tcp
+```
+
