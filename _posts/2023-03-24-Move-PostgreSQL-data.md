@@ -15,7 +15,6 @@ Moving the data folder for postgresql from the default location to another parti
 
 ```bash
 pg_dump -U postgres scoop_db > <date>_scoop_db.dump
-systemctl stop murbsd
 systemctl stop ScoopDaemon
 systemctl stop postgresql
 ```
@@ -31,5 +30,4 @@ ln -s /u/postgres /var/lib/pgsql
 ```bash
 systemctl start postgresql
 systemctl start ScoopDaemon
-systemctl start murbsd
 ```
