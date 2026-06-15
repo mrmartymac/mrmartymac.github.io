@@ -80,7 +80,7 @@ dfn install tar
 dnf install perl-libwww-perl
 dnf install ncftp
 dnf install httpd
-dnf install postgresql
+dnf install postgresql-16
 dnf install bzip2
 dnf install lbzip2
 ```
@@ -175,11 +175,11 @@ Edit the `/etc/ssh/sshd_config` file with your preferred text editor.
 nano /etc/ssh/sshd_config
 ```
 
-Find the line that has "#port 22" and un-comment the line, then change 22 to the port you wish to use.  
+Find the line that has `#port 22` and un-comment the line, then change 22 to the port you wish to use.  
 Change:  
-#port 22  
+`#port 22`  
 To:  
-port <NewPortNumber>  
+`port <NewPortNumber>`
 
 Save the file. (With nano editor, press CTRL + X then Y to overwrite.)  
 

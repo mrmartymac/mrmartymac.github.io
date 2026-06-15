@@ -21,5 +21,15 @@ Create an SSH key. Pres enter each time you are prompted taking the defaults.
 ssh-keygen -t ed25519 -b 4096
 ```
 
+Be sure to `cat` the public key into a file called `authorized_keys`
+```bash
+cat id_ed25519.pub > authorized_keys
+```
+
+Ensure the permissions of the `authorized_keys` and `id_ed25519` are `600`
+```bash
+chmod 600 authorized_keys id_ed25519
+```
+
 Configure the **SSHFS Settings** as shown below entering the IP address and SSH port for the server.
  ![SSHFS Settings](/images/scoop-sshfs-settings/Scoop-SSHFS-Settings.png)
