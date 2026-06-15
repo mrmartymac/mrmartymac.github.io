@@ -16,10 +16,12 @@ The script `mirror_github.sh` resides in `/home/git` on the Forgejo instance on 
 # --- CONFIGURATION ---
 GITHUB_ORG="newspapersystems"
 GITHUB_TOKEN="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" # Required to bypass GitHub API rate limits
+GITHUB_TOKEN="<see Vault>" # Required to bypass GitHub API rate limits
 GITHUB_USERNAME="mrmartymac"    # <--- Put your real GitHub username here
 
 FORGEJO_URL="http://localhost:3000"              # Update to your internal container port/URL if different
 FORGEJO_TOKEN="074c75955d340a49e2393e0f3403d6de0027ea1f"        # The token you generated in Step 1
+FORGEJO_TOKEN="<see Vault>"        # The token you generated in Step 1
 FORGEJO_OWNER="newspapersystems"     # The target user/org on Forgejo where mirrors will live
 # ---------------------
 
