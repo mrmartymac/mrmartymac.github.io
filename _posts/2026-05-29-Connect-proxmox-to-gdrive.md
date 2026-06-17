@@ -6,9 +6,10 @@ tags: [proxmox, google drive] # TAG names should always be lowercase
 author: mm
 ---
 I used the following sites for setting up `rclone` on ProxMox to connect Google Drive.
-https://syncbricks.com/proxmox-google-drive-integration-rclone-setup-guide/
-https://rclone.org/drive/#making-your-own-client-id
-https://console.cloud.google.com/
+[Synbricks]([URL](https://syncbricks.com/proxmox-google-drive-integration-rclone-setup-guide/))
+[Rclone](https://rclone.org/drive/#making-your-own-client-id)
+[Google Console](https://console.cloud.google.com/))
+
 
 ## Troubleshooting with AI
 
@@ -27,14 +28,12 @@ Here is how you can handle this:
 To verify it's working without disturbing the current process:
 
 * Open a **new, separate SSH terminal window** to your Proxmox server.
-* Run the following commands to see if your files are there:
+* Run the following commands to see if your files are there:  
+  
 ```bash
 cd /mnt/gdrive
 ls
-
 ```
-
-
 
 If you see your Google Drive folders, the mount is successful!
 
@@ -46,14 +45,14 @@ You don't want to keep a terminal window open forever just to keep your drive mo
 
 To make the mount run silently in the background and survive system reboots, you should stop your current frozen-looking command with **`Ctrl + C`** and set up the systemd service:
 
-1. **Create the service file:**
+1. **Create the service file:**  
 ```bash
 nano /etc/systemd/system/gdrive.service
-
 ```
 
 
-2. **Paste the configuration** provided in the guide:
+2. **Paste the configuration** provided in the guide:  
+
 ```ini
 [Unit]
 Description=rclone for G drive for synbricks
@@ -69,16 +68,14 @@ RestartSec=10
 
 [Install]
 WantedBy=default.target
-
 ```
 
 
-3. **Save and exit** (Press `Ctrl + O`, `Enter`, then `Ctrl + X`).
-4. **Enable and start it:**
+3. **Save and exit** (Press `Ctrl + O`, `Enter`, then `Ctrl + X`).  
+4. **Enable and start it:**  
 ```bash
 systemctl enable gdrive.service
 systemctl start gdrive.service
-
 ```
 
 
@@ -94,11 +91,10 @@ Here is how to fix it in two quick steps:
 
 ### 1. Fix the "changed on disk" warning
 
-Whenever you create or modify a service file in `/etc/systemd/system/`, `systemd` needs to refresh its internal cache. Run this command to clear the warning:
+Whenever you create or modify a service file in `/etc/systemd/system/`, `systemd` needs to refresh its internal cache. Run this command to clear the warning:  
 
 ```bash
 systemctl daemon-reload
-
 ```
 
 ---
@@ -110,29 +106,26 @@ If you look closely at the configuration from the [SyncBricks guide](https://syn
 
 This means the service will intentionally crash and refuse to start if the exact folder `/mnt/gdrive` does not exist on your Proxmox local storage.
 
-Run this command to ensure the target directory is created:
+Run this command to ensure the target directory is created:  
 
 ```bash
 mkdir -p /mnt/gdrive
-
 ```
 
 ---
 
 ### 3. Restart the service
 
-Now that the warning is cleared and the directory exists, try starting the service again:
+Now that the warning is cleared and the directory exists, try starting the service again:  
 
 ```bash
 systemctl start gdrive.service
-
 ```
 
-To confirm that it is finally running perfectly in the background, check its status:
+To confirm that it is finally running perfectly in the background, check its status:  
 
 ```bash
 systemctl status gdrive.service
-
 ```
 
 You should see a green **`active (running)`** status!
@@ -147,46 +140,42 @@ Let's clear out the ghost processes and reset the mount. Run these commands in o
 
 ### 1. Force unmount the directory
 
-Even if it looks empty, a failed or interrupted rclone attempt might be locking the mount point. Force it to release:
+Even if it looks empty, a failed or interrupted rclone attempt might be locking the mount point. Force it to release:  
 
 ```bash
 fusermount -u /mnt/gdrive
-
 ```
 
 *(If it says "invalid argument" or "not mounted", that's fine—it means it was already clean).*
 
 ### 2. Kill any hidden rclone processes
 
-Make absolutely sure there isn't a background rclone process lingering from your first manual command:
+Make absolutely sure there isn't a background rclone process lingering from your first manual command:  
 
 ```bash
 killall rclone
-
 ```
 
 *(If it says "no process found", you can safely move to the next step).*
 
 ### 3. Clear systemd's failed state and restart
 
-Systemd sometimes gets stubborn and remembers the "failed" state until you explicitly tell it to reset. Run this sequence to reload, clear the error, and start fresh:
+Systemd sometimes gets stubborn and remembers the "failed" state until you explicitly tell it to reset. Run this sequence to reload, clear the error, and start fresh:  
 
 ```bash
 systemctl daemon-reload
 systemctl reset-failed gdrive.service
 systemctl start gdrive.service
-
 ```
 
 ---
 
 ### Still failing? Let's check the exact error log
 
-If it throws the assertion error again after running those three steps, systemd will tell us exactly *why* it failed in the system logs. Run this command to look at the real-time log:
+If it throws the assertion error again after running those three steps, systemd will tell us exactly *why* it failed in the system logs. Run this command to look at the real-time log:  
 
 ```bash
 journalctl -u gdrive.service -n 20 --no-pager
-
 ```
 
 **What to look for in the log:**
