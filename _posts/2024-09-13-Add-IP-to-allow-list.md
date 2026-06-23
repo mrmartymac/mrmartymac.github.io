@@ -13,6 +13,13 @@ Take note of the **service names** in use.
 firewall-cmd --list-all
 ```
 
+## Creating the new service for ssh-custom or ftp-custom
+```bash
+firewall-cmd --permanent --new-service=ssh-custom
+firewall-cmd --permanent --service=ssh-custom --add-port=<PORTno.>/tcp
+firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="<IPADDREASS/CIDR>" service name="ssh-custom" accept'
+firewall-cmd --reload
+```
 ## Adding IP Addresses
 
 IP addresses are added to a given service. In this case the example is using the service named `ssh-custom`. This could vary from site to site and there may be a variety of rules for different services like SSH, FTP, etc.  
@@ -49,4 +56,19 @@ firewall-cmd --permanent --add-port=10090-10100/tcp
 Configuration file location
 ```bash
 cd /etc/firewalld/services
+```
+
+Location for the custom rules
+```bash
+nano /etc/firewalld/services/ssh-custom.xml
+```
+
+Contents of a custom rule
+```bash
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>SSH</short>
+  <description>Secure Shell (SSH) is a protocol for logging into and executing commands on remote machines. It provides secure$
+  <port protocol="tcp" port="9322"/>
+</service>
 ```
