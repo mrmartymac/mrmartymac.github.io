@@ -11,6 +11,17 @@ Migrating virtual machines from an old **CentOS 7 server running `virt-manager` 
 Here is the step-by-step guide to executing the migration.
 
 ---
+## Useful commands
+List all VMs
+```bash
+virsh list --all
+```
+To get the resources of the VM on virt-man run
+```bash
+virsh dominfo <vm_name>
+```
+
+
 
 ## Step 1: Prepare the VM on CentOS 7
 
@@ -69,14 +80,6 @@ Next, you need to create a "container" VM on Proxmox that will hold this disk.
 7. **Network:** Choose your bridge (usually `vmbr0`).
 8. Finish the wizard without starting the VM.
 
-### Notes on virt-man
-
-To get the resources of the VM on virt-man run
-```bash
-virsh dominfo <vm_name>
-```
-
-
 ---
 
 ## Step 4: Import the Disk into Proxmox
@@ -103,13 +106,13 @@ Once the import finishes, the disk will appear in the Proxmox UI, but it won't b
 
 1. Go to your new VM in the Proxmox Web UI and navigate to the **Hardware** tab.
 2. You will see an **Unused Disk 0**. Select it and click **Edit** (or double-click it).
-3. Select the bus type:
+3. In the **Disk image** field you should see the disk you imported in the previous step.
+4. Select the bus type:
 * **SCSI** (with VirtIO SCSI controller) is recommended for best performance on Linux/Windows.
 * If the VM fails to boot due to driver issues, change this to **IDE** or **SATA** temporarily until you can install VirtIO drivers.
-
-
-4. Go to the **Options** tab -> **Boot Order**.
-5. Click **Edit**, check the box for your newly attached disk, and drag it to the top of the boot priority list.
+* Click **OK**
+5. Go to the **Options** tab in the left pane choose **Boot Order**.
+6. Click **Edit**, check the box for your newly attached disk, and drag it to the top of the boot priority list.
 
 ---
 
@@ -125,3 +128,15 @@ Once the import finishes, the disk will appear in the Proxmox UI, but it won't b
 dnf install qemu-guest-agent
 ```
 * **Windows:** Download and mount the [Fedora VirtIO ISO](https://pve.proxmox.com/wiki/Windows_VirtIO_Drivers) to install the missing optimized network and ballooning drivers.
+
+## Step 7: Changing network settings
+
+When the new machine is created it is assigned to DHCP. The easiest approach to changing the IP address is to leverage the **Add Static** function on the Untangle box and then switch the IP address assigned to the node you are migrating.
+
+1. Log into Untangle
+2. Navigate to **Config, Network, DNS Server**
+3. In the list of **Static DNS Entries** locate the old entry for the node you are migrating and note the IP address.
+4. Click into the **DHCP Server** tab.
+5. In the **Current Leases** list, locate the new ProxMox instance. Click on the **+** sign next to the entry in the **Add Static** column. This will add a static entry in the **Static Entries** list.
+6. Locate the new entry in the **Static Entries** list and click into the **Address** field and revise the IP address to match the IP address you noted in step #3. Since the MAC address is part of the static lease, the new ProxMox instance will be assigned that address on reboot.
+7. Reboot the new ProxMox instance and verify the IP address of the node once it reboots.
