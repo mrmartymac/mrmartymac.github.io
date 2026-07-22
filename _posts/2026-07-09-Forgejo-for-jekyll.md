@@ -56,3 +56,47 @@ cd /opt
 git clone YOUR_GITHUB_REPO_URL forgejo-homelab
 cd forgejo-homelab
 ```
+DEsign notes
+```txt
+cat > ROADMAP.md <<'EOF'
+# Forgejo Homelab Roadmap
+
+## Design Principles
+
+1. Never hard-code what the system can discover.
+2. Every script should explain what it is doing.
+3. Scripts should be safe to re-run when possible.
+4. Each phase should end with a working checkpoint.
+
+## Phase 1
+- Create clean Proxmox LXC
+- Install base Debian tools
+- Clone toolkit repo
+
+## Phase 2
+- Install Caddy
+- Serve local docs folder
+
+## Phase 3
+- Install Forgejo
+
+## Phase 4
+- Add Jekyll build workflow
+
+## Phase 5
+- Add backups and maintenance scripts
+EOF
+
+cat > TODO.md <<'EOF'
+# TODO
+
+- [ ] Create clean LXC
+- [ ] Install base packages
+- [ ] Clone repo
+- [ ] Install Caddy
+- [ ] Install Forgejo
+- [ ] Install Jekyll
+- [ ] Configure Forgejo Actions
+- [ ] Publish first docs site
+EOF
+```
