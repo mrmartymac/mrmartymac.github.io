@@ -19,6 +19,7 @@ virsh list --all
 To get the resources of the VM on virt-man run
 ```bash
 virsh dominfo <vm_name>
+virsh domblklist <vm_name>
 ```
 
 
