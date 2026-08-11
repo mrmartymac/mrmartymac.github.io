@@ -5,6 +5,8 @@ categories: [Documentation, SSH-Relays]
 tags: [proxmox, ssh, relay] # TAG names should always be lowercase
 author: mm
 ---
+> **Public-safe edition:** Infrastructure-specific addresses, ports, aliases, account names, group names, and administrative key names have been replaced with placeholders. Obtain production values from an authorized administrator through a trusted channel.
+
 
 
 This guide explains how a new Windows user can configure the built-in OpenSSH client to connect to the SSH relay using:
@@ -12,7 +14,7 @@ This guide explains how a new Windows user can configure the built-in OpenSSH cl
 - An individual SSH key
 - A private-key passphrase
 - TOTP verification
-- The SSH alias `ssh-relay-2`
+- The SSH alias `<RelayHostAlias>`
 - Local port forwarding with `ssh -L`
 
 No additional SSH software is required. These steps use PowerShell and the built-in Windows OpenSSH client.
@@ -84,7 +86,7 @@ Example:
 ssh-keygen `
     -t ed25519 `
     -a 100 `
-    -f "$HOME\.ssh\ssh-relay-mrmar"
+    -f "$HOME\.ssh\ssh-relay-<ExampleUserName>"
 ```
 
 Enter a strong passphrase when prompted.
@@ -146,7 +148,7 @@ That is the private key.
 The administrator must:
 
 - Create the Linux account
-- Add the account to the `ssh-access` group
+- Add the account to the `<AuthorizedSSHGroup>` group
 - Install the public key in `authorized_keys`
 - Enroll the user for TOTP authentication
 - Confirm that the account has no unintended administrative access
@@ -166,9 +168,9 @@ notepad "$HOME\.ssh\config"
 Add the following entry:
 
 ```sshconfig
-Host ssh-relay-2
-    HostName 208.58.24.114
-    Port 9324
+Host <RelayHostAlias>
+    HostName <PublicIPAddress>
+    Port <ExternalSSHPort>
     User <YourUserName>
     IdentityFile ~/.ssh/ssh-relay-<YourUserName>
     IdentitiesOnly yes
@@ -177,11 +179,11 @@ Host ssh-relay-2
 Example:
 
 ```sshconfig
-Host ssh-relay-2
-    HostName 208.58.24.114
-    Port 9324
-    User mrmar
-    IdentityFile ~/.ssh/ssh-relay-mrmar
+Host <RelayHostAlias>
+    HostName <PublicIPAddress>
+    Port <ExternalSSHPort>
+    User <ExampleUserName>
+    IdentityFile ~/.ssh/ssh-relay-<ExampleUserName>
     IdentitiesOnly yes
 ```
 
@@ -200,16 +202,16 @@ C:\Users\<WindowsUser>\.ssh\config
 Run:
 
 ```powershell
-ssh -G ssh-relay-2 |
+ssh -G <RelayHostAlias> |
     Select-String '^(hostname|user|port|identityfile|identitiesonly) '
 ```
 
 Expected values should resemble:
 
 ```text
-hostname 208.58.24.114
+hostname <PublicIPAddress>
 user <YourUserName>
-port 9324
+port <ExternalSSHPort>
 identityfile ~/.ssh/ssh-relay-<YourUserName>
 identitiesonly yes
 ```
@@ -223,7 +225,7 @@ Confirm that the actual username and key filename appear, rather than the placeh
 Run:
 
 ```powershell
-ssh ssh-relay-2
+ssh <RelayHostAlias>
 ```
 
 The expected authentication sequence is:
@@ -245,7 +247,7 @@ pwd
 
 The results should show the assigned relay username and home directory.
 
-The `id` output should include the `ssh-access` group.
+The `id` output should include the `<AuthorizedSSHGroup>` group.
 
 ---
 
@@ -264,13 +266,13 @@ Ask the administrator to confirm the relay's ED25519 fingerprint.
 Once the fingerprint has been verified, remove the old saved host key:
 
 ```powershell
-ssh-keygen -R "[208.58.24.114]:9324"
+ssh-keygen -R "[<PublicIPAddress>]:<ExternalSSHPort>"
 ```
 
 Reconnect:
 
 ```powershell
-ssh ssh-relay-2
+ssh <RelayHostAlias>
 ```
 
 Windows will ask whether to trust the new host key.
@@ -296,7 +298,7 @@ Local port forwarding uses the `-L` option.
 Example:
 
 ```powershell
-ssh -L 8080:destination.example.com:80 ssh-relay-2
+ssh -L 8080:destination.example.com:80 <RelayHostAlias>
 ```
 
 This forwards:
@@ -314,7 +316,7 @@ Keep the SSH session open while using the tunnel.
 To create the tunnel without opening an interactive shell:
 
 ```powershell
-ssh -N -L 8080:destination.example.com:80 ssh-relay-2
+ssh -N -L 8080:destination.example.com:80 <RelayHostAlias>
 ```
 
 Where:
@@ -333,8 +335,8 @@ Example:
 
 ```sshconfig
 Host customer-web-tunnel
-    HostName 208.58.24.114
-    Port 9324
+    HostName <PublicIPAddress>
+    Port <ExternalSSHPort>
     User <YourUserName>
     IdentityFile ~/.ssh/ssh-relay-<YourUserName>
     IdentitiesOnly yes
@@ -354,7 +356,7 @@ ssh -N customer-web-tunnel
 Connect to the relay:
 
 ```powershell
-ssh ssh-relay-2
+ssh <RelayHostAlias>
 ```
 
 Then, from the relay:
@@ -363,7 +365,7 @@ Then, from the relay:
 ssh customer-user@customer-server
 ```
 
-The connection to the customer server will originate from the office network's known public IP address.
+The connection to the customer server will originate from the organization’s approved public egress IP address.
 
 ---
 
@@ -372,7 +374,7 @@ The connection to the customer server will originate from the office network's k
 For detailed connection diagnostics:
 
 ```powershell
-ssh -vvv ssh-relay-2
+ssh -vvv <RelayHostAlias>
 ```
 
 Useful lines include:
@@ -390,7 +392,7 @@ Connection closed
 To view only the most relevant lines:
 
 ```powershell
-ssh -vvv ssh-relay-2 2>&1 |
+ssh -vvv <RelayHostAlias> 2>&1 |
     Select-String 'Connecting to|identity file|Offering public key|Server accepts key|Authentications that can continue|Next authentication method'
 ```
 
@@ -426,7 +428,7 @@ The user must:
 - [ ] Private key protected with a passphrase
 - [ ] Public key sent to the administrator
 - [ ] SSH configuration created
-- [ ] `ssh-relay-2` alias verified
+- [ ] `<RelayHostAlias>` alias verified
 - [ ] Host fingerprint verified
 - [ ] TOTP enrolled
 - [ ] Key-plus-TOTP login tested

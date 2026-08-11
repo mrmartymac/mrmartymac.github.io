@@ -5,8 +5,10 @@ categories: [Documentation, SSH-Relays]
 tags: [proxmox, ssh, relay] # TAG names should always be lowercase
 author: mm
 ---
+> **Public-safe edition:** Infrastructure-specific addresses, ports, aliases, account names, group names, and administrative key names have been replaced with placeholders. Obtain production values from an authorized administrator through a trusted channel.
 
-This guide explains how a Mac user can configure the built-in OpenSSH client to connect to the SSH relay using an individual SSH key, TOTP verification, the `ssh-relay-2` alias, and optional port forwarding.
+
+This guide explains how a Mac user can configure the built-in OpenSSH client to connect to the SSH relay using an individual SSH key, TOTP verification, the `<RelayHostAlias>` alias, and optional port forwarding.
 
 Replace `<YourUserName>` with the Linux username assigned by the SSH relay administrator.
 
@@ -86,7 +88,7 @@ Send only the public key to the SSH relay administrator.
 The administrator must:
 
 - Create the Linux account
-- Add it to `ssh-access`
+- Add it to `<AuthorizedSSHGroup>`
 - Install the public key in `authorized_keys`
 - Enroll the user for TOTP
 - Verify that the account has no unintended sudo access
@@ -116,9 +118,9 @@ nano ~/.ssh/config
 Add:
 
 ```sshconfig
-Host ssh-relay-2
-    HostName 208.58.24.114
-    Port 9324
+Host <RelayHostAlias>
+    HostName <PublicIPAddress>
+    Port <ExternalSSHPort>
     User <YourUserName>
     IdentityFile ~/.ssh/ssh-relay-<YourUserName>
     IdentitiesOnly yes
@@ -141,16 +143,16 @@ chmod 644 ~/.ssh/ssh-relay-<YourUserName>.pub
 ## 8. Verify the SSH Configuration
 
 ```bash
-ssh -G ssh-relay-2 |
+ssh -G <RelayHostAlias> |
 grep -Ei '^(hostname|user|port|identityfile|identitiesonly) '
 ```
 
 Expected values should include:
 
 ```text
-hostname 208.58.24.114
+hostname <PublicIPAddress>
 user <YourUserName>
-port 9324
+port <ExternalSSHPort>
 identityfile ~/.ssh/ssh-relay-<YourUserName>
 identitiesonly yes
 ```
@@ -160,7 +162,7 @@ identitiesonly yes
 ## 9. Connect to the Relay
 
 ```bash
-ssh ssh-relay-2
+ssh <RelayHostAlias>
 ```
 
 Expected sequence:
@@ -180,7 +182,7 @@ echo "$HOME"
 pwd
 ```
 
-The `id` output should include `ssh-access`.
+The `id` output should include `<AuthorizedSSHGroup>`.
 
 ---
 
@@ -197,13 +199,13 @@ first verify the new ED25519 fingerprint with the administrator.
 Then remove the old key:
 
 ```bash
-ssh-keygen -R "[208.58.24.114]:9324"
+ssh-keygen -R "[<PublicIPAddress>]:<ExternalSSHPort>"
 ```
 
 Reconnect:
 
 ```bash
-ssh ssh-relay-2
+ssh <RelayHostAlias>
 ```
 
 Confirm the displayed fingerprint matches the administrator's fingerprint, then enter:
@@ -219,7 +221,7 @@ yes
 Example:
 
 ```bash
-ssh -L 8080:destination.example.com:80 ssh-relay-2
+ssh -L 8080:destination.example.com:80 <RelayHostAlias>
 ```
 
 This forwards:
@@ -235,7 +237,7 @@ destination.example.com:80
 For a tunnel without an interactive shell:
 
 ```bash
-ssh -N -L 8080:destination.example.com:80 ssh-relay-2
+ssh -N -L 8080:destination.example.com:80 <RelayHostAlias>
 ```
 
 Keep the SSH process running while using the tunnel.
@@ -248,8 +250,8 @@ Add another entry to `~/.ssh/config`:
 
 ```sshconfig
 Host customer-web-tunnel
-    HostName 208.58.24.114
-    Port 9324
+    HostName <PublicIPAddress>
+    Port <ExternalSSHPort>
     User <YourUserName>
     IdentityFile ~/.ssh/ssh-relay-<YourUserName>
     IdentitiesOnly yes
@@ -271,7 +273,7 @@ ssh -N customer-web-tunnel
 Connect to the relay:
 
 ```bash
-ssh ssh-relay-2
+ssh <RelayHostAlias>
 ```
 
 Then, from the relay:
@@ -280,7 +282,7 @@ Then, from the relay:
 ssh customer-user@customer-server
 ```
 
-The customer server should see the office's public IP address.
+The customer server should see the organization’s approved public egress IP address.
 
 Verify the relay's outbound public IP:
 
@@ -291,7 +293,7 @@ echo
 
 ---
 
-## 14. Optional: Route Mac Traffic Through the Office with `sshuttle`
+## 14. Optional: Route Mac Traffic Through the Organization’s Network with `sshuttle`
 
 Ordinary SSH does not change the public IP used by applications running locally on the Mac.
 
@@ -306,7 +308,7 @@ Start it using the SSH alias:
 ```bash
 sudo sshuttle \
   --dns \
-  -r ssh-relay-2 \
+  -r <RelayHostAlias> \
   0/0
 ```
 
@@ -319,7 +321,7 @@ curl https://api.ipify.org
 echo
 ```
 
-It should show the office public IP.
+It should show the organization’s approved public egress IP.
 
 Stop `sshuttle` with `Ctrl+C`.
 
@@ -330,13 +332,13 @@ Stop `sshuttle` with `Ctrl+C`.
 ```bash
 ssh -vvv \
   -o ConnectTimeout=10 \
-  ssh-relay-2
+  <RelayHostAlias>
 ```
 
 If it stops at:
 
 ```text
-Connecting to 208.58.24.114 port 9324
+Connecting to <PublicIPAddress> port <ExternalSSHPort>
 Operation timed out
 ```
 
@@ -372,7 +374,7 @@ IdentitiesOnly yes
 Then use:
 
 ```bash
-ssh ssh-relay-2
+ssh <RelayHostAlias>
 ```
 
 To force the correct key explicitly:
@@ -381,8 +383,8 @@ To force the correct key explicitly:
 ssh \
   -o IdentitiesOnly=yes \
   -i ~/.ssh/ssh-relay-<YourUserName> \
-  -p 9324 \
-  <YourUserName>@208.58.24.114
+  -p <ExternalSSHPort> \
+  <YourUserName>@<PublicIPAddress>
 ```
 
 ---
@@ -416,7 +418,7 @@ This does not mean the SSH connection is unencrypted. Continue only after confir
 - [ ] Public key sent to the administrator
 - [ ] Private key added to macOS Keychain
 - [ ] SSH configuration created
-- [ ] `ssh-relay-2` alias verified
+- [ ] `<RelayHostAlias>` alias verified
 - [ ] Host fingerprint verified
 - [ ] TOTP enrolled
 - [ ] Key-plus-TOTP login tested

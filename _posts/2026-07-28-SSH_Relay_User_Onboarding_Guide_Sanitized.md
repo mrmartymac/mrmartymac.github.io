@@ -5,6 +5,8 @@ categories: [Documentation, SSH-Relays]
 tags: [proxmox, ssh, relay] # TAG names should always be lowercase
 author: mm
 ---
+> **Public-safe edition:** Infrastructure-specific addresses, ports, aliases, account names, group names, and administrative key names have been replaced with placeholders. Obtain production values from an authorized administrator through a trusted channel.
+
 
 
 This guide documents the process for creating a new employee account on the AlmaLinux SSH relay and configuring that employee's Mac for public-key and TOTP authentication.
@@ -14,7 +16,7 @@ This guide documents the process for creating a new employee account on the Alma
 Each employee should have:
 
 - An individual Linux account on the relay
-- Membership in the `ssh-access` group
+- Membership in the `<AuthorizedSSHGroup>` group
 - An individual SSH key pair
 - An individual TOTP enrollment
 - No shared account or shared private key
@@ -34,7 +36,7 @@ Log in to the SSH relay as an administrator and run:
 sudo useradd \
   --create-home \
   --shell /bin/bash \
-  --groups ssh-access \
+  --groups <AuthorizedSSHGroup> \
   --comment "SSH relay user" \
   <YourUserName>
 ```
@@ -51,7 +53,7 @@ Confirm that:
 
 - The home directory is `/home/<YourUserName>`
 - The shell is `/bin/bash`
-- The user belongs to `ssh-access`
+- The user belongs to `<AuthorizedSSHGroup>`
 - The user does not belong to `wheel`
 
 Lock password authentication for the account:
@@ -254,7 +256,7 @@ Also verify group membership:
 id <YourUserName>
 ```
 
-The user should belong to `ssh-access` but not `wheel`.
+The user should belong to `<AuthorizedSSHGroup>` but not `wheel`.
 
 ---
 
@@ -266,7 +268,7 @@ From the employee's Mac, test with:
 ssh \
   -o IdentitiesOnly=yes \
   -i ~/.ssh/ssh-relay-<YourUserName> \
-  <YourUserName>@208.58.24.114
+  <YourUserName>@<PublicIPAddress>
 ```
 
 Expected authentication sequence:
@@ -294,7 +296,7 @@ Expected results:
 /home/<YourUserName>
 ```
 
-The `id` output should include `ssh-access` and should not include `wheel`.
+The `id` output should include `<AuthorizedSSHGroup>` and should not include `wheel`.
 
 ---
 
@@ -312,7 +314,7 @@ Test one known-good local port forward from the Mac:
 ssh \
   -L local_port:destination_host:destination_port \
   -i ~/.ssh/ssh-relay-<YourUserName> \
-  <YourUserName>@208.58.24.114
+  <YourUserName>@<PublicIPAddress>
 ```
 
 Where:
@@ -327,7 +329,7 @@ If X11 forwarding is required, test it with:
 ssh \
   -X \
   -i ~/.ssh/ssh-relay-<YourUserName> \
-  <YourUserName>@208.58.24.114
+  <YourUserName>@<PublicIPAddress>
 ```
 
 Review recent SSH logs on the relay:
@@ -426,8 +428,8 @@ Add:
 
 ```sshconfig
 Host ssh-relay-<YourUserName>
-    HostName 208.58.24.114
-    Port 9324
+    HostName <PublicIPAddress>
+    Port <ExternalSSHPort>
     User <YourUserName>
     IdentityFile ~/.ssh/ssh-relay-<YourUserName>
     IdentitiesOnly yes
@@ -438,7 +440,7 @@ Host ssh-relay-<YourUserName>
 Replace:
 
 - `ssh-relay-<YourUserName>` with a convenient alias
-- `208.58.24.114` with the production hostname or public address when instructed
+- `<PublicIPAddress>` with the production hostname or public address when instructed
 - `<YourUserName>` with the employee's actual relay username
 - The identity filename if a different filename was used
 
@@ -530,7 +532,7 @@ The outbound connection will originate from the office network's public IP addre
 For each new employee, confirm:
 
 - [ ] Individual Linux account created
-- [ ] User added to `ssh-access`
+- [ ] User added to `<AuthorizedSSHGroup>`
 - [ ] User not added to `wheel`
 - [ ] Password locked
 - [ ] Individual public key installed
@@ -582,7 +584,7 @@ sudo tail -f /var/log/secure
 sudo useradd \
   --create-home \
   --shell /bin/bash \
-  --groups ssh-access \
+  --groups <AuthorizedSSHGroup> \
   --comment "SSH relay user" \
   <YourUserName>
 
