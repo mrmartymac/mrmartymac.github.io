@@ -13,6 +13,6 @@ systemctl status scs_eric_web_api
 ```
 
 To ensure the process is present
-```bas
+```bash
 ps -efwww | grep eric_input
 ```
