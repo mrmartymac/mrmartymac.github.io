@@ -2,7 +2,7 @@
 title: CAS dreclog fix
 date: 2026-04-27 08:24:05 -400
 categories: [Cheatsheets, CAS]
-tags: [cas, dreclog] # TAG names should always be lowercase
+tags: [cas, dreclog, reboot, update] # TAG names should always be lowercase
 author: mm
 ---
 Symptom: Going to any CAS page does not return a response, it eventually times out. The server load is almost always low when this happens. You may also have also have users in X11 applications (AdMAX, Layout) that have stuck processes. Usually you can confirm the issue by running 
@@ -16,7 +16,7 @@ Cause: `/u/scs/tools/data/dreclog.dat` or `/u/scs/tools/data/dreclog.idx` are 2G
 Fix: As root:
 ```bash
 cd /u/scs/tools/data
-/u/scs/tools/bin/makrecs dreclog ../tbin/dreclog
+/u/scs/tools/bin/makerecs dreclog ../tbin/dreclog
 chmod 666 dreclog.dat dreclog.idx
 ```
 It is also a good idea to cleanup the stuck processes, which can be identified by looking at anything that has open the old (_o) versions of the files: 

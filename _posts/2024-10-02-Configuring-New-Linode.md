@@ -76,7 +76,7 @@ firewall-cmd --list-all
 dnf install -y epel-release
 dnf install -y fail2ban fail2ban-systemd
 dnf --enablerepo=powertools install -y fuse-sshfs x2goserver
-dfn install tar
+dnf install tar
 dnf install perl-libwww-perl
 dnf install ncftp
 dnf install httpd
